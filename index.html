@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Carvajal Agencia de Automatizaciones — soluciones de IA, WhatsApp y automatización empresarial.">
+<title>Carvajal | Agencia de Automatizaciones</title>
+<style>
+:root{
+  --ink:#11100e; --muted:#6f6a61; --cream:#f7f4ed; --paper:#fffdf8;
+  --line:#ded8cc; --gold:#b08a4a; --gold2:#d3b476; --dark:#171614;
+  --shadow:0 24px 70px rgba(27,24,19,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92%);margin:auto}
+.topbar{border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#766f64}
+.topbar .container{display:flex;justify-content:space-between;padding:10px 0}
+header{position:sticky;top:0;z-index:20;background:rgba(247,244,237,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(222,216,204,.8)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:13px}
+.monogram{width:45px;height:45px;border:1px solid var(--gold);display:grid;place-items:center;position:relative;background:#181715;color:white;box-shadow:inset 0 0 0 4px #181715}
+.monogram:before{content:"C";font-family:Georgia,serif;font-size:27px;color:#d8bd88}
+.monogram:after{content:"A";position:absolute;font-family:Georgia,serif;font-size:20px;color:white;transform:translate(7px,5px)}
+.brand strong{font-family:Georgia,serif;font-size:16px;letter-spacing:.18em}
+.brand span{display:block;font-size:9px;letter-spacing:.22em;color:var(--muted);margin-top:2px}
+.navlinks{display:flex;gap:27px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.navlinks a:hover{color:var(--gold)}
+.cta{background:var(--dark);color:white;padding:12px 18px;border:1px solid var(--dark);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.cta:hover{background:#2a2824}
+.hero{padding:96px 0 80px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-220px;top:-190px;background:radial-gradient(circle,rgba(176,138,74,.18),transparent 68%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(48px,7vw,82px);line-height:.98;letter-spacing:-.045em;margin:0 0 28px}
+h1 em{color:#8f6b37;font-style:normal}
+.lead{font-size:18px;color:#5d584f;max-width:620px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{padding:15px 22px;border:1px solid var(--ink);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.btn.primary{background:var(--dark);color:white}
+.btn.secondary{background:transparent}
+.hero-card{background:var(--dark);color:white;min-height:430px;padding:34px;position:relative;box-shadow:var(--shadow);overflow:hidden}
+.hero-card:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-130px;top:-100px;border:1px solid rgba(211,180,118,.45)}
+.hero-card:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-190px;top:-160px;border:1px solid rgba(211,180,118,.16)}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#cdb17e}
+.signal{width:9px;height:9px;border-radius:50%;background:#d3b476;box-shadow:0 0 0 5px rgba(211,180,118,.12)}
+.hero-card h2{font-family:Georgia,serif;font-weight:400;font-size:43px;line-height:1.05;margin:85px 0 20px}
+.hero-card p{color:#c5c0b8;max-width:330px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #3b3934;margin-top:42px;padding-top:20px;gap:15px}
+.stats b{font-family:Georgia,serif;font-size:24px;font-weight:400}.stats small{display:block;color:#99948c;font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.section{padding:92px 0}
+.section.alt{background:var(--paper)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+.kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:800}
+h2.section-title{font-family:Georgia,serif;font-weight:400;font-size:clamp(34px,5vw,54px);line-height:1.05;margin:10px 0 0}
+.section-intro{max-width:440px;color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:var(--paper);padding:35px;min-height:250px;transition:.25s}
+.service:hover{transform:translateY(-5px);box-shadow:var(--shadow);position:relative;z-index:2}
+.num{font-family:Georgia,serif;color:var(--gold);font-size:14px}
+.service h3{font-family:Georgia,serif;font-weight:400;font-size:27px;margin:35px 0 10px}
+.service p{color:var(--muted);font-size:14px}
+.plans-wrap{background:var(--dark);padding:70px;color:white}
+.plan-tabs{display:flex;gap:0;border-bottom:1px solid #45423c;margin-bottom:0}
+.tab{flex:1;padding:19px;text-align:left;background:transparent;color:#9d988f;border:0;border-bottom:2px solid transparent;cursor:pointer;font:700 11px Arial;letter-spacing:.12em;text-transform:uppercase}
+.tab.active{color:white;border-bottom-color:var(--gold2)}
+.tab.locked{cursor:not-allowed}
+.plan{display:none;grid-template-columns:1fr 1.5fr;gap:70px;padding:55px 10px 10px}
+.plan.active{display:grid}
+.plan h3{font:400 48px Georgia,serif;margin:0 0 12px}.price{font:12px;color:#cdb17e;letter-spacing:.1em;text-transform:uppercase}.price strong{display:block;color:white;font:400 25px Georgia,serif;margin-top:8px}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #45423c}
+.benefit{padding:17px 0;border-bottom:1px solid #45423c;color:#d1cdc5;font-size:14px}.benefit:before{content:"✓";color:#d3b476;margin-right:10px}
+.lock-message{color:#aaa49a;font-size:14px;max-width:450px}
+.demo{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:stretch}
+.demo-info{padding:20px 0}.demo-info h2{font:400 48px Georgia,serif;line-height:1.05;margin:10px 0 22px}
+.demo-info p{color:var(--muted)}
+.chat{background:white;border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:480px}
+.chat-head{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--dark);color:#d3b476;display:grid;place-items:center;font:18px Georgia}
+.chat-head b{font-size:13px}.online{display:block;color:#8b7a5d;font-size:10px}
+.messages{padding:25px;display:flex;flex-direction:column;gap:13px;flex:1;background:#faf8f3}
+.msg{max-width:78%;padding:12px 15px;font-size:13px}.in{background:white;border:1px solid #e8e2d7;align-self:flex-start}.out{background:#201e1a;color:white;align-self:flex-end}.chat-foot{padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}.chat-foot a{flex:1;text-align:center}
+.privacy{border-top:1px solid var(--line)}
+.privacy-box{background:white;border:1px solid var(--line);padding:38px;max-width:850px}
+.privacy-box h3{font:400 30px Georgia,serif;margin-top:0}.privacy-box p{color:var(--muted);font-size:14px}
+footer{background:#11100e;color:#bdb7ae;padding:55px 0}.footer-grid{display:flex;justify-content:space-between;gap:30px}.footer-brand{color:white;font:22px Georgia,serif}.footer-small{font-size:11px;color:#77736c;margin-top:10px}
+@media(max-width:850px){
+ .navlinks{display:none}.hero-grid,.demo,.plan{grid-template-columns:1fr}.hero{padding-top:65px}.hero-card{min-height:380px}.services{grid-template-columns:1fr}.section-head{display:block}.section-intro{margin-top:18px}.benefits{grid-template-columns:1fr}.plans-wrap{padding:45px 22px}.plan-tabs{overflow:auto}.tab{min-width:150px}.footer-grid{display:block}.footer-grid>div+div{margin-top:30px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container"><span>Automatización empresarial</span><span>Bolivia · Atención digital</span></div></div>
+<header>
+<nav class="container nav">
+<a class="brand" href="#">
+  <div class="monogram"></div>
+  <div><strong>CARVAJAL</strong><span>AGENCIA DE AUTOMATIZACIONES</span></div>
+</a>
+<div class="navlinks"><a href="#soluciones">Soluciones</a><a href="#planes">Planes</a><a href="#demo">Demo</a><a href="#privacidad">Privacidad</a></div>
+<a class="cta" href="https://wa.me/59162450812?text=Hola%20Carvajal%20Agencia%2C%20quiero%20conocer%20la%20demo." target="_blank">Hablar con nosotros</a>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">IA · WhatsApp · Automatización</div>
+<h1>La tecnología <em>trabaja.</em><br>Tu empresa avanza.</h1>
+<p class="lead">Diseñamos sistemas digitales que atienden, venden, organizan y dan seguimiento a tus clientes, incluso cuando tu equipo no está disponible.</p>
+<div class="hero-actions"><a class="btn primary" href="#demo">Ver demo</a><a class="btn secondary" href="#planes">Explorar planes</a></div>
+</div>
+<div class="hero-card">
+<div class="card-top"><span>CARVAJAL / SYSTEMS</span><span class="signal"></span></div>
+<h2>Una nueva forma de atender a tus clientes.</h2>
+<p>Agentes de IA conectados a WhatsApp, CRM, catálogos y procesos internos.</p>
+<div class="stats"><div><b>24/7</b><small>Disponibilidad</small></div><div><b>IA</b><small>Conversación</small></div><div><b>CRM</b><small>Seguimiento</small></div></div>
+</div>
+</div>
+</section>
+
+<section class="section alt" id="soluciones">
+<div class="container">
+<div class="section-head"><div><div class="kicker">01 / Soluciones</div><h2 class="section-title">Menos tareas.<br>Más operaciones.</h2></div><p class="section-intro">Convertimos conversaciones y procesos repetitivos en sistemas automatizados, medibles y escalables.</p></div>
+<div class="services">
+<article class="service"><span class="num">01</span><h3>Atención IA</h3><p>Respuestas automáticas, clasificación de consultas y atención continua por WhatsApp.</p></article>
+<article class="service"><span class="num">02</span><h3>Ventas</h3><p>Calificación de prospectos, seguimiento y asistencia comercial durante todo el proceso.</p></article>
+<article class="service"><span class="num">03</span><h3>Automatización</h3><p>Conectamos herramientas y procesos para reducir trabajo manual y mejorar tiempos de respuesta.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section" id="planes">
+<div class="container">
+<div class="kicker">02 / Planes</div>
+<div class="plans-wrap" style="margin-top:18px">
+<div class="plan-tabs">
+<button class="tab active" data-plan="starter">Starter</button>
+<button class="tab locked" data-plan="business">Business · Próximamente</button>
+<button class="tab locked" data-plan="pro">Pro · Próximamente</button>
+</div>
+<div class="plan active" id="starter">
+<div><div class="price">Instalación</div><h3>Bs 1.500 – 2.500</h3><div class="price">Mantenimiento mensual<strong>Bs 300 – 600</strong></div></div>
+<div><div class="benefits"><div class="benefit">Atención básica por WhatsApp</div><div class="benefit">Respuestas automatizadas</div><div class="benefit">Preguntas frecuentes</div><div class="benefit">Configuración inicial</div><div class="benefit">Flujo básico de clientes</div><div class="benefit">Soporte y mantenimiento</div></div></div>
+</div>
+<div class="plan" id="business"><div><div class="price">Próximamente</div><h3>Business</h3></div><p class="lock-message">Este paquete se habilitará cuando terminemos el desarrollo de nuestra segunda etapa de servicios.</p></div>
+<div class="plan" id="pro"><div><div class="price">Próximamente</div><h3>Pro</h3></div><p class="lock-message">Agente de ventas, soporte, RAG, múltiples departamentos, voz, análisis e integraciones avanzadas.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section alt" id="demo">
+<div class="container demo">
+<div class="demo-info"><div class="kicker">03 / Demo en vivo</div><h2>Así puede conversar tu empresa.</h2><p>Una experiencia de atención diseñada para responder preguntas, orientar al cliente y llevarlo hacia el siguiente paso.</p><a class="btn primary" href="https://wa.me/59162450812?text=Hola%20Carvajal%20Agencia%2C%20quiero%20probar%20la%20demo." target="_blank" style="display:inline-block;margin-top:18px">Probar por WhatsApp</a></div>
+<div class="chat">
+<div class="chat-head"><div class="avatar">C</div><div><b>Carvajal IA</b><span class="online">● En línea</span></div></div>
+<div class="messages"><div class="msg in">Hola 👋 ¿En qué podemos ayudarte?</div><div class="msg out">Quiero automatizar la atención de mi negocio.</div><div class="msg in">Perfecto. Podemos ayudarte con WhatsApp, IA, seguimiento y automatizaciones. ¿Quieres conocer la demo?</div><div class="msg out">Sí, quiero verla.</div><div class="msg in">Excelente. Pulsa “Probar por WhatsApp” para continuar.</div></div>
+<div class="chat-foot"><a class="btn primary" href="https://wa.me/59162450812?text=Hola%20Carvajal%20IA%2C%20quiero%20probar%20la%20demo." target="_blank">Abrir WhatsApp</a></div>
+</div>
+</div>
+</section>
+
+<section class="section privacy" id="privacidad">
+<div class="container"><div class="kicker">04 / Privacidad</div><div class="privacy-box" style="margin-top:18px"><h3>Política de Privacidad</h3><p>Esta aplicación utiliza WhatsApp Business API únicamente para fines de automatización de mensajería propia.</p><p>No compartimos ni vendemos datos de usuarios a terceros.</p><p>Para consultas relacionadas con privacidad, puede contactar a: <a href="mailto:mijailcar555@gmail.com" style="text-decoration:underline">mijailcar555@gmail.com</a></p></div></div>
+</section>
+</main>
+
+<footer><div class="container footer-grid"><div><div class="footer-brand">CARVAJAL</div><div class="footer-small">AGENCIA DE AUTOMATIZACIONES · BOLIVIA</div></div><div><div>cagenciauto@gmail.com</div><div style="margin-top:8px">WhatsApp: +591 62450812</div><div class="footer-small">© 2026 Carvajal Agencia de Automatizaciones</div></div></div></footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    if(tab.classList.contains('locked')) return;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.plan').forEach(x=>x.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.plan).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
