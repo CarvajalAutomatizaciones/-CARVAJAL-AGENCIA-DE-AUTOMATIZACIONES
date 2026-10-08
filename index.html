@@ -1228,11 +1228,43 @@ section{
 }
 </style>
 
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>
+:root{--bg:#0d0b08;--ink:#f5f0e6;--mut:#a39b86;--gold:#d0a45c;--gd:#b58a45;--ln:rgba(208,164,92,.28)}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:9999;background:var(--gold);color:#14110c;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid #ffe2a6;outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#caa-cb{position:fixed;left:16px;right:16px;bottom:16px;z-index:9000;max-width:720px;margin:auto;padding:20px 22px;background:rgba(20,18,14,.97);border:1px solid var(--ln);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.6);color:var(--ink);font:14px/1.5 "DM Sans",system-ui,sans-serif}
+#caa-cb h2{margin:0 0 6px;font:800 16px "Sora",system-ui,sans-serif}
+#caa-cb p{margin:0 0 14px;color:#cfc8b8}
+#caa-cb a,#legal a{color:var(--gold)}
+#caa-cb .row{display:flex;gap:10px;flex-wrap:wrap}
+#caa-cb button,.cp-link{font:700 14px "DM Sans",system-ui,sans-serif;padding:11px 18px;border-radius:10px;cursor:pointer;border:1px solid var(--ln);background:transparent;color:var(--ink)}
+#caa-cb button.ok{background:linear-gradient(135deg,var(--gold),var(--gd));color:#14110c;border:0}
+.cp-link{border:0;padding:0;color:var(--gold);text-decoration:underline;font-weight:600;font-size:inherit}
+.lg-w{width:min(780px,calc(100% - 32px));margin:auto}
+#legal{padding:40px 0 60px}
+#legal h1{font:800 clamp(28px,5vw,40px)/1.15 "Sora",system-ui,sans-serif;margin:0 0 6px}
+#legal h2{font:700 20px "Sora",system-ui,sans-serif;margin:34px 0 8px;color:var(--gold)}
+#legal .upd{color:var(--mut);margin:0 0 20px}
+#legal ul{padding-left:22px}
+#legal table{width:100%;border-collapse:collapse;font-size:14px}
+#legal th,#legal td{text-align:left;padding:10px;border:1px solid var(--ln);vertical-align:top}
+#legal nav a{margin-right:16px}
+#legal .tw{overflow-x:auto}
+
+[hidden]{display:none!important}
+#legal:focus{outline:none}
+#legal .back{display:inline-block;margin-bottom:18px}
+</style>
 </head>
 
 <body>
 
-<canvas id="stars"></canvas>
+<a class="skip" href="#main">Saltar al contenido</a>
+<canvas id="stars" aria-hidden="true"></canvas>
 
 <header>
   <div class="w nav">
@@ -1241,7 +1273,7 @@ section{
   <b>C.A.A.</b> · CARVAJAL
 </a>
 
-<nav class="navlinks">
+<nav class="navlinks" aria-label="Principal">
   <a href="#arquitectura">Arquitectura</a>
   <a href="#soluciones">Soluciones</a>
   <a href="#planes">Planes</a>
@@ -1251,7 +1283,7 @@ section{
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 <!-- HERO -->
 
@@ -1277,7 +1309,7 @@ section{
 <a
   class="btn btn-gold"
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
   href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20información%20sobre%20la%20Plataforma%20CARVAJAL%20V1.2."
 >
   Solicitar información
@@ -1951,7 +1983,7 @@ section{
     <a
       class="btn btn-gold"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20activar%20el%20Plan%20Starter."
     >
       Solicitar activación Starter
@@ -1970,6 +2002,12 @@ section{
 </section>
 
 </main>
+<main id="legal" class="lg-w" tabindex="-1" hidden>
+<article data-legal-page="privacidad" data-title="Política de privacidad" hidden><a class="back" href="#">← Volver al inicio</a><h1>Política de privacidad</h1><p class="upd">Última actualización: 1 de octubre de 2026</p><h2>Quién es el responsable</h2><p>Carvajal Agencia de Automatización (C.A.A.), La Paz, Bolivia. Contacto para cualquier tema de privacidad: WhatsApp +591 63047048.</p><h2>Qué datos recopila este sitio</h2><p>El sitio no tiene formularios, registro ni cuentas, y no te pide datos personales. Al cargarlo, los proveedores técnicos listados abajo pueden registrar datos técnicos básicos (dirección IP, navegador). En tu navegador solo guardamos tu elección sobre cookies.</p><h2>Datos que nos das por WhatsApp</h2><p>Si nos escribes, recibimos tu número, tu nombre de perfil y el contenido de tus mensajes. Los usamos solo para responder tu consulta, cotizar y activar un plan. No te pedimos datos que no sean necesarios para eso, y te recomendamos no enviar contraseñas, datos bancarios ni documentos de identidad por chat. Los conservamos mientras dure la relación comercial o hasta que pidas eliminarlos.</p><h2>Servicios de terceros</h2><ul><li><b>Google Fonts</b> (Google): carga las tipografías; Google recibe tu IP.</li><li><b>jsDelivr</b> (CDN): entrega las librerías de la escena 3D (three.js y GSAP); recibe tu IP.</li><li><b>WhatsApp</b> (Meta): solo si haces clic en un botón de contacto; sus términos y política aplican a esa conversación.</li><li><b>Instagram, Facebook, X y TikTok</b>: solo enlaces; no se carga nada de ellos hasta que haces clic.</li></ul><h2>Con quién compartimos datos</h2><p>No vendemos ni cedemos tus datos, y no hacemos perfiles publicitarios. Solo los compartimos con los proveedores necesarios para prestar el servicio o si una autoridad competente lo exige.</p><h2>Tus derechos</h2><p>Puedes pedir acceso, corrección o eliminación de tus datos, y oponerte a su uso, conforme al derecho a la privacidad y a la acción de protección de privacidad (Constitución Política del Estado, arts. 21 y 130). Escríbenos por WhatsApp y respondemos tu solicitud.</p><h2>Seguridad y menores</h2><p>Aplicamos medidas razonables para proteger los datos que recibimos. El sitio no está dirigido a menores de 18 años.</p><h2>Cambios</h2><p>Publicaremos cualquier cambio en esta página con su nueva fecha.</p></article>
+<article data-legal-page="terminos" data-title="Términos y condiciones" hidden><a class="back" href="#">← Volver al inicio</a><h1>Términos y condiciones</h1><p class="upd">Última actualización: 1 de octubre de 2026</p><h2>Aceptación</h2><p>Al usar este sitio aceptas estos términos. Si no estás de acuerdo, no lo uses.</p><h2>Servicios</h2><p>Carvajal Agencia de Automatización (C.A.A.), La Paz, Bolivia ofrece una plataforma de automatización con WhatsApp e inteligencia artificial. El plan Starter está disponible; Business y Pro están en preparación y no tienen fecha comprometida.</p><h2>Precios y contratación</h2><p>Los precios del sitio (USD y Bs) son referenciales. Antes de contratar confirmamos por WhatsApp el alcance y el precio final; la contratación se concreta cuando ambas partes lo aceptan por ese medio.</p><h2>Inteligencia artificial</h2><p>Las respuestas automáticas pueden contener errores. El cliente es responsable de supervisar su atención y de la información que carga en la plataforma. La IA no sustituye asesoría legal, médica ni financiera.</p><h2>Uso aceptable</h2><p>No debes usar el sitio ni la plataforma para actividades ilegales, spam, suplantación o para interferir con su funcionamiento.</p><h2>Propiedad intelectual y créditos</h2><p>La marca CARVAJAL, los textos y el diseño del sitio son de Carvajal Agencia de Automatización. El sitio no usa fotografías, logotipos ni imágenes de terceros. Componentes de terceros: tipografías Sora y DM Sans (licencia SIL Open Font License), three.js (licencia MIT) y GSAP (licencia estándar de GSAP).</p><h2>Servicios de terceros</h2><p>WhatsApp, redes sociales y proveedores técnicos se rigen por sus propios términos. No controlamos su disponibilidad.</p><h2>Limitación de responsabilidad</h2><p>El sitio se ofrece tal cual. En la medida permitida por la ley, no respondemos por interrupciones, errores de terceros ni daños indirectos derivados de su uso.</p><h2>Cambios y ley aplicable</h2><p>Podemos actualizar estos términos y publicaremos la nueva fecha. Se rigen por las leyes del Estado Plurinacional de Bolivia y, para cualquier controversia, por los tribunales de La Paz.</p></article>
+<article data-legal-page="cookies" data-title="Política de cookies" hidden><a class="back" href="#">← Volver al inicio</a><h1>Política de cookies</h1><p class="upd">Última actualización: 1 de octubre de 2026</p><h2>Qué son</h2><p>Son archivos o datos que un sitio guarda en tu navegador. Aquí explicamos cuáles usamos y para qué.</p><h2>Qué usamos</h2><div class="tw"><table><caption class="sr-only">Almacenamiento usado por el sitio</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Tipo</th><th scope="col">Para qué</th><th scope="col">Duración</th></tr></thead><tbody><tr><td>caa-consent-v1</td><td>Almacenamiento local, propio y necesario</td><td>Recordar tu elección sobre cookies</td><td>Hasta que la borres o cambies tu elección</td></tr></tbody></table></div><p>No usamos cookies propias, de análisis ni de publicidad.</p><h2>Terceros</h2><p>Google Fonts y jsDelivr cargan recursos del sitio y pueden registrar tu IP; no establecemos cookies con ellos. Si haces clic hacia WhatsApp o redes sociales, sales del sitio y aplican sus propias políticas.</p><h2>Cómo gestionar tu elección</h2><p><button type="button" class="cp-link" data-cookie-prefs>Abrir preferencias de cookies</button>. También puedes borrar los datos del sitio desde la configuración de tu navegador.</p><h2>Si esto cambia</h2><p>Si en el futuro agregamos cookies opcionales (por ejemplo, análisis), no se activarán hasta que las aceptes.</p></article>
+</main>
+
 
 <footer class="ft">
 
@@ -1983,7 +2021,7 @@ Atención · Automatización · Inteligencia · Escala
 
 <a
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
   href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20información."
 >
   WhatsApp
@@ -1992,7 +2030,7 @@ Atención · Automatización · Inteligencia · Escala
 <a
   href="https://www.instagram.com/caragenciauto"
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
 >
   Instagram
 </a>
@@ -2000,7 +2038,7 @@ Atención · Automatización · Inteligencia · Escala
 <a
   href="https://www.facebook.com/profile.php?id=61594887920300"
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
 >
   Facebook
 </a>
@@ -2008,7 +2046,7 @@ Atención · Automatización · Inteligencia · Escala
 <a
   href="https://x.com/Caragenciauto"
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
 >
   X
 </a>
@@ -2016,12 +2054,14 @@ Atención · Automatización · Inteligencia · Escala
 <a
   href="https://www.tiktok.com/@carvajal.automati"
   target="_blank"
-  rel="noopener"
+  rel="noopener noreferrer"
 >
   TikTok
 </a>
 
   </div>
+
+  <nav class="ft-links" aria-label="Documentos legales"><a href="#/privacidad" data-legal>Privacidad</a><a href="#/terminos" data-legal>Términos</a><a href="#/cookies" data-legal>Cookies</a><button type="button" class="cp-link" data-cookie-prefs>Preferencias de cookies</button></nav>
 
   <div style="margin-top:18px">
     © 2026 Carvajal Agencia de Automatización · La Paz, Bolivia
@@ -2084,7 +2124,7 @@ const $ = s => document.querySelector(s);
 
   (function draw(){
 
-    requestAnimationFrame(draw);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)requestAnimationFrame(draw);
 
     ctx.fillStyle='rgba(13,11,8,0.35)';
     ctx.fillRect(0,0,w,h);
@@ -2209,7 +2249,7 @@ const GOLD = 0xd0a45c;
    MOBILE
 ============================================================ */
 
-if(matchMedia('(max-width:800px)').matches){
+if(matchMedia('(max-width:800px)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches){
 
   stage.classList.add('mob');
 
@@ -2372,7 +2412,7 @@ else{
 
   hubEl.innerHTML =
 
-    '<div class="hub glass">'+
+    '<div class="hub glass" role="button" tabindex="0" aria-expanded="false">'+
 
       '<b>CARVAJAL</b>'+
 
@@ -2481,6 +2521,7 @@ else{
         document.createElement('div');
 
       el.className='n';
+      el.setAttribute('aria-hidden','true');
 
       el.innerHTML =
 
@@ -2628,6 +2669,15 @@ else{
   );
 
 
+  const hubB=hubEl.firstChild;
+  hubB.addEventListener('click',()=>hubB.setAttribute('aria-expanded',String(open)));
+  hubB.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hubB.click()}});
+  stage.setAttribute('role','group');
+  stage.setAttribute('aria-label','Arquitectura CARVAJAL: diagrama interactivo');
+  const srl=document.createElement('ul');srl.className='sr-only';
+  srl.innerHTML=N.map(n=>'<li>'+n[0]+': '+n[1]+'</li>').join('');
+  stage.after(srl);
+
   /* RESIZE */
 
   function fit(){
@@ -2740,9 +2790,9 @@ const P = [
 
 $('#plans').innerHTML = P.map(function(p){
   var btn = p.available
-    ? '<a class="hb" target="_blank" rel="noopener" href="https://wa.me/59163047048?text='+encodeURIComponent('Hola Carvajal, quiero activar el Plan '+p.n+'.')+'">Activar Plan</a>'
-    : '<a class="hb disabled">Próximamente</a>';
-  var overlay = p.available ? '' : '<div class="soon-overlay"><div class="soon-badge">PRÓXIMAMENTE<small>Business y Pro · en preparación</small></div></div>';
+    ? '<a class="hb" target="_blank" rel="noopener noreferrer" href="https://wa.me/59163047048?text='+encodeURIComponent('Hola Carvajal, quiero activar el Plan '+p.n+'.')+'">Activar Plan<span class="sr-only"> (se abre en una pestaña nueva)</span></a>'
+    : '<a class="hb disabled" aria-disabled="true">Próximamente</a>';
+  var overlay = p.available ? '' : '<div class="soon-overlay" aria-hidden="true"><div class="soon-badge">PRÓXIMAMENTE<small>Business y Pro · en preparación</small></div></div>';
   var tag = p.available ? 'tg-ok' : 'tg-soon';
   return '<article class="glass plan">'+
     overlay+
@@ -2761,7 +2811,7 @@ $('#plans').innerHTML = P.map(function(p){
 ============================================================ */
 
 document.querySelectorAll('.plan').forEach(function(c){
-  if(c.querySelector('.soon-overlay')) return;
+  if(c.querySelector('.soon-overlay')||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   c.addEventListener('pointermove',function(e){
     var b=c.getBoundingClientRect();
     gsap.to(c,{
@@ -2801,7 +2851,7 @@ document
         e.preventDefault();
 
         target.scrollIntoView({
-          behavior:'smooth',
+          behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',
           block:'start'
         });
 
@@ -2812,5 +2862,52 @@ document
 
 </script>
 
+
+<script>
+(function(){
+var K='caa-consent-v1',D=document,box=null,last=null;
+function get(){try{return JSON.parse(localStorage.getItem(K))}catch(e){return null}}
+function save(opt){var v={optional:opt,date:new Date().toISOString().slice(0,10)};try{localStorage.setItem(K,JSON.stringify(v))}catch(e){}
+  window.CAAConsent.state=v;D.dispatchEvent(new CustomEvent('caa-consent',{detail:v}))}
+function close(){if(box){box.remove();box=null}if(last&&last.focus)last.focus()}
+function open(){
+  if(box)return;last=D.activeElement;box=D.createElement('div');box.id='caa-cb';
+  box.setAttribute('role','dialog');box.setAttribute('aria-labelledby','caa-cb-t');box.setAttribute('aria-describedby','caa-cb-d');
+  box.innerHTML='<h2 id="caa-cb-t">Tu privacidad</h2><p id="caa-cb-d">Este sitio solo usa almacenamiento técnico para recordar tu elección. Hoy no usamos cookies de análisis ni de publicidad. Si activamos alguna en el futuro, solo funcionará si aceptas las opcionales. <a href="#/cookies" data-legal>Política de cookies</a> · <a href="#/privacidad" data-legal>Privacidad</a></p><div class="row"><button type="button" id="caa-no">Solo necesarias</button><button type="button" class="ok" id="caa-yes">Aceptar todas</button></div>';
+  D.body.appendChild(box);
+  D.getElementById('caa-no').onclick=function(){save(false);close()};
+  D.getElementById('caa-yes').onclick=function(){save(true);close()};
+  D.getElementById('caa-no').focus();
+  box.addEventListener('keydown',function(e){if(e.key==='Escape'){save(false);close()}});
+}
+window.CAAConsent={state:get(),open:open,allowed:function(){return !!(window.CAAConsent.state&&window.CAAConsent.state.optional)}};
+D.addEventListener('DOMContentLoaded',function(){
+  if(!window.CAAConsent.state){open();last=null}
+  D.querySelectorAll('[data-cookie-prefs]').forEach(function(b){b.addEventListener('click',open)});
+  D.querySelectorAll('a[target="_blank"]:not([data-ne])').forEach(function(a){
+    if(!a.querySelector('.sr-only')){var s=D.createElement('span');s.className='sr-only';s.textContent=' (se abre en una pestaña nueva)';a.appendChild(s)}a.setAttribute('data-ne','1')});
+});
+})();
+
+</script>
+<script>
+(function(){
+var L=document.getElementById('legal'),M=document.getElementById('main'),T=document.title,P=L.querySelectorAll('[data-legal-page]');
+var RM=function(){return matchMedia('(prefers-reduced-motion: reduce)').matches};
+function route(){var r=(location.hash.match(/^#\/(\w+)/)||[])[1],on=false;
+ P.forEach(function(p){var m=p.getAttribute('data-legal-page')===r;p.hidden=!m;if(m){on=true;document.title=p.getAttribute('data-title')+' | CARVAJAL'}});
+ L.hidden=!on;M.hidden=on;
+ if(on){scrollTo(0,0);L.focus({preventScroll:true})}else document.title=T}
+function home(){history.pushState(null,'',location.pathname+location.search);route()}
+document.addEventListener('click',function(e){
+ var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href');
+ if(h.indexOf('#/')===0){e.preventDefault();e.stopPropagation();location.hash=h;return}
+ if(L.hidden)return;
+ e.preventDefault();e.stopPropagation();home();
+ if(h.length>1){var t=document.querySelector(h);if(t)requestAnimationFrame(function(){t.scrollIntoView({behavior:RM()?'auto':'smooth',block:'start'})})}else scrollTo(0,0)
+},true);
+addEventListener('hashchange',route);route();
+})();
+</script>
 </body>
 </html>
