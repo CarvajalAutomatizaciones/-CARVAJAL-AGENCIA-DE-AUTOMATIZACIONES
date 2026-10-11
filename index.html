@@ -1,2989 +1,783 @@
 <!DOCTYPE html>
-<!-- SECURITY: archivo público. No incluir claves API, tokens, contraseñas, URLs administrativas ni credenciales. Mantener dependencias fijadas a versiones y revisar CSP al agregar nuevos recursos. -->
-
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="CARVAJAL Agencia de Automatizaciones — Plataforma de inteligencia y automatización empresarial mediante WhatsApp, IA, CRM y procesos automatizados.">
-<meta name="theme-color" content="#0d0b08">
-<title>CARVAJAL | Plataforma de Automatización IA · V1.2</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script type="importmap">
-{
-  "imports":{
-    "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
-    "gsap":"https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm"
-  }
-}
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f0e6">
+<meta name="description" content="CARVAJAL Agencia de Automatizaciones — Automatización empresarial con WhatsApp, IA, RAG, CRM y procesos integrados.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CARVAJAL | Agencia de Automatizaciones">
+<meta property="og:description" content="Automatizamos la atención, operación y crecimiento de tu empresa.">
+<meta property="og:locale" content="es_BO">
+<meta name="twitter:card" content="summary_large_image">
+<title>CARVAJAL | Agencia de Automatizaciones</title>
 
 <style>
 :root{
-  --bg:#0d0b08;
-  --bg2:#12100c;
-  --ink:#f5f0e6;
-  --mut:#948c78;
-  --gold:#d0a45c;
-  --gold2:#e5c27e;
-  --gd:#b58a45;
-  --pn:rgba(28,26,22,.55);
-  --pn2:rgba(20,18,14,.82);
-  --ln:rgba(208,164,92,.22);
-  --ln2:rgba(208,164,92,.12);
-  --glow:rgba(208,164,92,.45);
-  --green:#7dffb2;
+  --ivory:#f6f0e6;--ivory2:#fffaf1;--paper:#fbf6ee;--ink:#17130e;--mut:#6f685e;
+  --gold:#b98927;--gold2:#d7ad55;--gold3:#8e6617;--line:rgba(150,112,42,.22);
+  --green:#367751;--shadow:0 28px 80px rgba(55,40,16,.10);
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
 }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+  radial-gradient(circle at 13% 4%,rgba(255,255,255,.92),transparent 29%),
+  radial-gradient(circle at 94% 18%,rgba(215,173,85,.08),transparent 25%),
+  var(--ivory);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;z-index:-1;pointer-events:none;border:1px solid rgba(185,137,39,.30);border-radius:50%;width:720px;height:720px}
+body::before{left:-520px;top:-335px} body::after{right:-520px;bottom:-420px}
+a{color:inherit}
+.wrap{width:min(1290px,calc(100% - 42px));margin:auto}
+.skip{position:fixed;left:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:9px;z-index:9999}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid rgba(185,137,39,.65);outline-offset:3px}
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
+header{position:sticky;top:0;z-index:100;background:rgba(246,240,230,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:78px;display:grid;grid-template-columns:290px 1fr auto;align-items:center;gap:24px}
+.logo-link{display:flex;align-items:center;text-decoration:none;gap:0;min-width:0}
+.logo-img{width:190px;height:66px;object-fit:contain;object-position:left center;border-radius:0;display:block}
+.logo-copy{display:none}.logo-copy strong{display:block;font:700 22px/1 var(--serif);letter-spacing:.14em}
+.logo-copy span{display:block;margin-top:6px;color:var(--gold3);font-size:9px;letter-spacing:.30em}
+.navlinks{display:flex;justify-content:center;gap:38px;align-items:center}
+.navlinks a{font-size:13px;text-decoration:none;font-weight:700;position:relative}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--gold);transition:.2s}
+.navlinks a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.login{text-decoration:none;border:1px solid rgba(23,19,14,.35);border-radius:999px;padding:11px 27px;font-weight:800;font-size:13px;background:rgba(255,255,255,.25)}
+.menu-btn{display:none;border:1px solid var(--line);background:transparent;border-radius:12px;width:42px;height:42px;font-size:20px}
+
+.hero{padding:30px 0 8px}
+.hero-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:34px;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:.34em;color:var(--gold3);font-weight:800;text-transform:uppercase;margin:8px 0 10px}
+h1,h2,h3{margin:0;font-family:var(--serif)}
+h1{font-size:clamp(43px,4.65vw,72px);line-height:.98;letter-spacing:-.035em;max-width:650px}
+.gold{color:var(--gold)}
+.lead{font-size:17px;line-height:1.58;color:#474037;max-width:650px;margin:20px 0 10px}
+.availability{font-size:13px;color:#625a4f;margin:0 0 20px}
+.availability strong{font-weight:900}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 25px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:850;border:1px solid rgba(23,19,14,.20);cursor:pointer}
+.btn-primary{background:#17130e;color:#fff;box-shadow:0 10px 32px rgba(23,19,14,.14)}
+.btn-primary .arrow{color:var(--gold2)}
+.btn-light{background:rgba(255,255,255,.36)}
+.btn-gold{background:linear-gradient(135deg,#efd28d,#c99632);color:#17130e;border-color:#c79738}
+.btn:hover{transform:translateY(-1px)}
+
+.hero-visual{position:relative;min-width:0;overflow:visible}
+.holo-frame{
+position:relative;
+border:0;
+border-radius:0;
+overflow:visible;
+box-shadow:none;
+background:transparent;
+isolation:isolate;
+transform:scale(1.05);
+transform-origin:center;
 }
-
-html{
-  scroll-behavior:smooth
+.holo-frame::after{
+content:"";
+position:absolute;
+inset:-8%;
+pointer-events:none;
+z-index:3;
+background:
+radial-gradient(ellipse at center,transparent 50%,rgba(246,240,230,.40) 72%,rgba(246,240,230,.96) 100%);
 }
-
-body{
-  min-height:100vh;
-  color:var(--ink);
-  font:400 16px/1.55 "DM Sans",sans-serif;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(208,164,92,.07),transparent 34%),
-    var(--bg);
-  overflow-x:hidden
+.holo-img{
+display:block;
+width:112%;
+max-width:none;
+margin-left:-6%;
+aspect-ratio:737/420;
+object-fit:cover;
+border:0;
+border-radius:0;
+-webkit-mask-image:radial-gradient(ellipse 78% 74% at 50% 50%,#000 52%,rgba(0,0,0,.92) 63%,rgba(0,0,0,.45) 77%,transparent 96%);
+mask-image:radial-gradient(ellipse 78% 74% at 50% 50%,#000 52%,rgba(0,0,0,.92) 63%,rgba(0,0,0,.45) 77%,transparent 96%);
 }
+.holo-cta{
+position:absolute;
+left:50%;
+bottom:10px;
+transform:translateX(-50%);
+z-index:4;
+min-width:0;
+width:auto;
+min-height:38px;
+padding:0 18px;
+font-size:11px;
+letter-spacing:.01em;
+box-shadow:0 6px 18px rgba(0,0,0,.14);
+white-space:nowrap;
+}
+.holo-caption{display:none}
 
-body:before{
+
+/* ===== HOLOGRAMA CARVAJAL INTERACTIVO ===== */
+.hero-visual{position:relative;min-width:0;overflow:visible}
+.holo-live{
+  position:relative;
+  width:min(100%,760px);
+  height:520px;
+  margin:0 auto;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+  isolation:isolate;
+}
+.holo-live::before{
   content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
   background:
-    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(to bottom,black,transparent 80%);
+    radial-gradient(circle,rgba(213,169,78,.14) 0 18%,transparent 19% 100%),
+    repeating-radial-gradient(circle,rgba(185,137,39,.18) 0 1px,transparent 1px 38px);
+  filter:drop-shadow(0 0 34px rgba(185,137,39,.16));
+  opacity:.72;
+  animation:holoSpin 24s linear infinite;
 }
-
-#stars{
-  position:fixed;
+.holo-live::after{
+  content:"";
+  position:absolute;
+  width:390px;
+  height:390px;
+  border-radius:50%;
+  border:1px solid rgba(185,137,39,.24);
+  box-shadow:
+    0 0 0 38px rgba(185,137,39,.028),
+    0 0 0 76px rgba(185,137,39,.018),
+    0 0 70px rgba(185,137,39,.12);
+  animation:holoPulse 3.4s ease-in-out infinite;
+}
+.holo-lines{
+  position:absolute;
   inset:0;
-  z-index:0;
   width:100%;
   height:100%;
-  pointer-events:none
-}
-
-a{
-  color:inherit
-}
-
-.w{
-  width:min(1180px,calc(100% - 32px));
-  margin:auto;
-  position:relative;
-  z-index:1
-}
-
-.glass{
-  background:var(--pn);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid var(--ln);
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.05);
-  border-radius:18px
-}
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(13,11,8,.78);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--ln)
-}
-
-.nav{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px
-}
-
-.brand{
-  font-family:"Sora",sans-serif;
-  font-weight:800;
-  letter-spacing:.14em;
-  font-size:14px;
-  white-space:nowrap
-}
-
-.brand b{
-  color:var(--gold);
-  text-shadow:0 0 20px var(--glow)
-}
-
-.navlinks{
-  display:flex;
-  align-items:center;
-  gap:25px
-}
-
-.navlinks a{
-  font-size:12px;
-  color:var(--mut);
-  font-weight:600;
-  text-decoration:none;
-  transition:.25s
-}
-
-.navlinks a:hover{
-  color:var(--gold);
-  text-shadow:0 0 16px var(--glow)
-}
-
-.navcta{
-  color:#14110c!important;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  padding:9px 15px;
-  border-radius:9px
-}
-
-.navcta:hover{
-  color:#14110c!important;
-  text-shadow:none!important
-}
-
-/* TYPOGRAPHY */
-
-.eb{
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  font-size:11px;
-  font-weight:700;
-  color:var(--gold)
-}
-
-h1,h2,h3{
-  font-family:"Sora",sans-serif;
-  margin:10px 0;
-  line-height:1.08;
-  font-weight:800
-}
-
-h1{
-  font-size:clamp(30px,5.4vw,58px)
-}
-
-h2{
-  font-size:clamp(25px,4vw,42px)
-}
-
-h3{
-  font-size:22px
-}
-
-h1 span,
-h2 span{
-  color:var(--gold);
-  text-shadow:0 0 26px var(--glow)
-}
-
-.muted{
-  color:var(--mut)
-}
-
-/* HERO */
-
-.hero{
-  padding:78px 0 24px;
-  text-align:center
-}
-
-.hero h1{
-  max-width:980px;
-  margin:13px auto
-}
-
-.hero p{
-  color:var(--mut);
-  max-width:720px;
-  margin:14px auto 0;
-  font-size:17px
-}
-
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:28px
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 21px;
-  border-radius:11px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:13px;
-  transition:.3s;
-  border:1px solid var(--ln)
-}
-
-.btn-gold{
-  color:#14110c;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  box-shadow:0 0 28px rgba(208,164,92,.28)
-}
-
-.btn-gold:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 40px rgba(208,164,92,.5)
-}
-
-.btn-dark{
-  color:var(--ink);
-  background:rgba(28,26,22,.7)
-}
-
-.btn-dark:hover{
-  border-color:var(--gold);
-  color:var(--gold)
-}
-
-.hero-meta{
-  margin-top:24px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap
-}
-
-.hero-meta span{
-  font-size:11px;
-  color:var(--mut);
-  border:1px solid var(--ln2);
-  background:rgba(28,26,22,.35);
-  border-radius:99px;
-  padding:5px 11px
-}
-
-/* 3D STAGE */
-
-#stage{
-  position:relative;
-  height:650px;
-  margin:16px auto 0;
-  border-radius:24px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(208,164,92,.13),transparent 52%),
-    radial-gradient(circle at 50% 50%,rgba(255,255,255,.025),transparent 65%)
-}
-
-#stage canvas,
-#stage .lbl{
-  position:absolute;
-  inset:0
-}
-
-.n{
-  pointer-events:none
-}
-
-.open .n{
-  pointer-events:auto
-}
-
-.n:hover{
-  z-index:9999!important
-}
-
-.hub{
-  pointer-events:auto;
-  cursor:pointer;
-  text-align:center;
-  padding:19px 23px;
-  max-width:270px;
-  animation:pulseGold 2.4s ease-in-out infinite
-}
-
-.hub b{
-  display:block;
-  font-size:30px;
-  font-family:"Sora",sans-serif;
-  color:var(--gold);
-  letter-spacing:.1em;
-  text-shadow:0 0 24px var(--glow)
-}
-
-.hub small{
-  display:block;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.08em;
-  margin-top:6px;
-  color:var(--ink)
-}
-
-.hub i{
-  display:block;
-  font-style:normal;
-  font-size:10px;
-  color:var(--mut);
-  margin-top:6px
-}
-
-@keyframes pulseGold{
-  0%,100%{
-    box-shadow:0 0 20px rgba(208,164,92,.25)
-  }
-  50%{
-    box-shadow:0 0 50px rgba(208,164,92,.55)
-  }
-}
-
-.c{
-  position:relative;
-  padding:10px 16px;
-  font-size:13px;
-  font-weight:600;
-  white-space:nowrap;
-  opacity:0;
-  cursor:pointer;
-  color:var(--ink);
-  transition:box-shadow .3s,background .3s
-}
-
-.c:hover{
-  box-shadow:0 0 40px rgba(208,164,92,.5);
-  background:rgba(28,26,22,.85)
-}
-
-.tip{
-  position:absolute;
-  left:50%;
-  top:calc(100% + 10px);
-  width:250px;
-  margin-left:-125px;
-  padding:13px;
-  white-space:normal;
-  font-size:12px;
-  font-weight:400;
-  color:var(--mut);
-  text-align:left;
-  opacity:0;
-  transform:perspective(500px) rotateX(-35deg) translateY(-8px);
-  transform-origin:top;
-  transition:.3s;
+  overflow:visible;
   pointer-events:none;
-  background:rgba(13,11,8,.94);
-  border:1px solid var(--ln);
-  border-radius:12px
+  z-index:1;
 }
-
-.c:hover .tip{
-  opacity:1;
-  transform:none
+.holo-lines line{
+  stroke:rgba(183,132,34,.0);
+  stroke-width:1.35;
+  stroke-dasharray:6 8;
+  vector-effect:non-scaling-stroke;
+  transition:stroke .55s ease;
 }
-
-.ml{
-  list-style:none;
-  margin:0;
-  padding:14px;
-  display:grid;
-  gap:12px
+.holo-live.expanded .holo-lines line{
+  stroke:rgba(183,132,34,.58);
+  animation:holoDash 8s linear infinite;
 }
-
-.ml li{
-  padding:14px 16px
-}
-
-.ml b{
-  color:var(--gold)
-}
-
-.ml p{
-  margin:4px 0 0;
-  font-size:13px;
-  color:var(--mut)
-}
-
-#stage.mob{
-  height:auto;
-  background:none
-}
-
-/* SECTIONS */
-
-section{
-  padding:88px 0;
+.holo-core{
   position:relative;
-  z-index:1
-}
-
-.head{
-  text-align:center;
-  margin-bottom:46px
-}
-
-.head p{
-  color:var(--mut);
-  max-width:680px;
-  margin:12px auto 0
-}
-
-.kicker{
-  text-align:center;
-  max-width:720px;
-  margin:0 auto 42px;
-  color:var(--mut);
-  font-size:14px
-}
-
-/* ARCHITECTURE */
-
-.arch-grid{
-  display:grid;
-  grid-template-columns:1fr 1.35fr 1fr;
-  gap:16px;
-  align-items:center
-}
-
-.arch-col{
-  display:grid;
-  gap:16px
-}
-
-.arch-card{
-  padding:21px;
-  min-height:135px;
-  transition:.3s
-}
-
-.arch-card:hover{
-  transform:translateY(-3px);
-  border-color:rgba(208,164,92,.5);
-  box-shadow:0 0 35px rgba(208,164,92,.18)
-}
-
-.arch-card .icon{
-  font-family:"Sora",sans-serif;
-  color:var(--gold);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase
-}
-
-.arch-card h3{
-  font-size:18px;
-  margin:7px 0
-}
-
-.arch-card p{
-  color:var(--mut);
-  font-size:12px
-}
-
-.arch-core{
-  min-height:330px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:35px;
-  position:relative;
-  overflow:hidden
-}
-
-.arch-core:before{
-  content:"";
-  position:absolute;
-  width:250px;
-  height:250px;
-  border:1px solid rgba(208,164,92,.25);
+  z-index:4;
+  width:184px;
+  height:184px;
   border-radius:50%;
+  border:1px solid rgba(185,137,39,.56);
+  background:
+    radial-gradient(circle at 50% 42%,rgba(250,224,155,.96) 0 3%,rgba(212,165,73,.74) 4%,rgba(81,58,20,.94) 34%,rgba(23,19,14,.98) 71%);
+  color:#f6df9e;
   box-shadow:
-    0 0 80px rgba(208,164,92,.12),
-    inset 0 0 50px rgba(208,164,92,.06);
-  animation:coreSpin 18s linear infinite
-}
-
-.arch-core:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border:1px dashed rgba(208,164,92,.22);
-  border-radius:50%;
-  animation:coreSpin 12s linear infinite reverse
-}
-
-@keyframes coreSpin{
-  to{transform:rotate(360deg)}
-}
-
-.arch-core>*{
-  position:relative;
-  z-index:1
-}
-
-.arch-core strong{
-  font-family:"Sora",sans-serif;
-  font-size:36px;
-  letter-spacing:.08em;
-  color:var(--gold);
-  text-shadow:0 0 28px var(--glow)
-}
-
-.arch-core span{
-  margin-top:8px;
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase
-}
-
-.arch-core p{
-  max-width:260px;
-  color:var(--mut);
-  font-size:12px;
-  margin-top:14px
-}
-
-/* FLOW */
-
-.flow{
+    inset 0 0 34px rgba(255,226,158,.11),
+    0 0 34px rgba(185,137,39,.30),
+    0 0 90px rgba(185,137,39,.12);
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-  align-items:stretch
-}
-
-.flow-item{
-  padding:22px 15px;
+  place-items:center;
   text-align:center;
-  position:relative
+  cursor:pointer;
+  user-select:none;
+  transition:transform .3s ease,box-shadow .3s ease;
 }
-
-.flow-item strong{
-  display:block;
-  color:var(--gold);
-  font-family:"Sora",sans-serif;
-  font-size:13px;
-  margin-bottom:6px
-}
-
-.flow-item p{
-  color:var(--mut);
-  font-size:11px
-}
-
-.flow-arrow{
+.holo-core:hover{transform:scale(1.035);box-shadow:0 0 50px rgba(185,137,39,.40),0 0 115px rgba(185,137,39,.16)}
+.holo-core strong{display:block;font:700 25px/1.05 var(--serif);letter-spacing:.08em}
+.holo-core span{display:block;margin-top:7px;font-size:9px;letter-spacing:.22em;color:#d8b55e}
+.holo-core small{display:block;margin-top:11px;font-size:9px;letter-spacing:.08em;color:#d8d0c1}
+.holo-node{
   position:absolute;
-  right:-10px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--gold);
-  z-index:2;
-  font-size:18px
-}
-
-/* SECTORS */
-
-.sectors{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px
-}
-
-.sector{
-  min-height:145px;
-  padding:22px;
-  position:relative;
-  overflow:hidden;
-  transition:.3s
-}
-
-.sector:hover{
-  transform:translateY(-4px);
-  border-color:rgba(208,164,92,.45);
-  box-shadow:0 0 35px rgba(208,164,92,.16)
-}
-
-.sector b{
-  color:var(--gold);
-  font-family:"Sora",sans-serif;
-  font-size:15px
-}
-
-.sector p{
-  margin-top:9px;
-  color:var(--mut);
-  font-size:12px
-}
-
-.sector span{
-  position:absolute;
-  right:14px;
-  bottom:12px;
-  color:rgba(208,164,92,.16);
-  font-family:"Sora",sans-serif;
-  font-size:26px;
-  font-weight:800
-}
-
-/* USE CASES */
-
-.use-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
-
-.use{
-  padding:25px
-}
-
-.use .num{
-  color:var(--gold);
-  font-family:"Sora",sans-serif;
-  font-size:11px;
-  letter-spacing:.15em
-}
-
-.use h3{
-  margin:10px 0 8px;
-  font-size:18px
-}
-
-.use p{
-  color:var(--mut);
-  font-size:13px
-}
-
-.use .path{
-  margin-top:15px;
-  padding-top:13px;
-  border-top:1px solid var(--ln2);
-  color:#c9c4ba;
-  font-size:11px
-}
-
-.use .path strong{
-  color:var(--gold)
-}
-
-/* PLANS */
-
-.g3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  perspective:1200px
-}
-
-.plan{
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-  transform-style:preserve-3d;
-  transition:box-shadow .3s;
-  position:relative
-}
-
-.plan:hover{
-  box-shadow:0 0 50px rgba(208,164,92,.35)
-}
-
-.plan h3{
-  margin:0;
-  font-size:24px
-}
-
-.plan .sb{
-  color:var(--gold);
-  font-weight:600;
-  font-size:13px;
-  margin:4px 0 10px
-}
-
-.plan .lg{
-  color:var(--mut);
-  font-size:14px;
-  min-height:60px;
-  line-height:1.45
-}
-
-.tg{
-  display:inline-block;
-  align-self:flex-start;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.1em;
-  padding:5px 12px;
-  border-radius:99px;
-  margin:12px 0
-}
-
-.tg-ok{
-  background:rgba(125,255,178,.12);
-  color:var(--green);
-  border:1px solid rgba(125,255,178,.35)
-}
-
-.tg-soon{
-  background:rgba(208,164,92,.12);
-  color:var(--gold);
-  border:1px solid var(--ln)
-}
-
-.px{
-  border-top:1px solid var(--ln);
-  padding:14px 0
-}
-
-.px small{
-  display:block;
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--mut);
-  margin-top:8px
-}
-
-.px b{
-  font-size:18px;
-  color:var(--gold)
-}
-
-.plan ul{
-  list-style:none;
-  padding:0;
-  margin:0 0 20px;
-  font-size:13px;
-  flex:1
-}
-
-.plan li{
-  padding:5px 0 5px 22px;
-  position:relative;
-  color:#c9c4ba
-}
-
-.plan li:before{
-  content:"✓";
-  position:absolute;
-  left:0;
-  color:var(--gold);
-  font-weight:800
-}
-
-.soon-overlay{
-  position:absolute;
-  inset:0;
-  border-radius:18px;
-  background:rgba(13,11,8,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:5;
-  pointer-events:none
-}
-
-.soon-badge{
-  background:linear-gradient(135deg,#ffe2a6,var(--gold) 55%,var(--gd));
-  color:#14110c;
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.08em;
-  padding:12px 22px;
-  border-radius:12px;
-  box-shadow:
-    0 0 0 0 rgba(208,164,92,.6),
-    0 10px 30px rgba(208,164,92,.4);
-  animation:pulseBadge 1.8s infinite;
-  text-align:center;
-  line-height:1.35
-}
-
-.soon-badge small{
-  display:block;
+  z-index:3;
+  min-width:142px;
+  padding:11px 14px;
+  border-radius:999px;
+  border:1px solid rgba(185,137,39,.42);
+  background:rgba(255,250,241,.84);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 34px rgba(56,40,14,.08),0 0 22px rgba(185,137,39,.08);
+  color:#29231a;
   font-size:10px;
-  font-weight:600;
-  margin-top:2px
-}
-
-@keyframes pulseBadge{
-  70%{
-    box-shadow:
-      0 0 0 18px rgba(208,164,92,0),
-      0 10px 30px rgba(208,164,92,.4)
-  }
-  100%{
-    box-shadow:
-      0 0 0 0 rgba(208,164,92,0),
-      0 10px 30px rgba(208,164,92,.4)
-  }
-}
-
-.hb{
-  margin-top:auto;
-  display:block;
+  font-weight:850;
+  letter-spacing:.035em;
   text-align:center;
-  padding:14px;
-  border-radius:12px;
-  color:#14110c;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-decoration:none;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,var(--gold),var(--gd));
-  box-shadow:0 0 28px rgba(208,164,92,.4);
-  transition:.3s
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.72);
+  pointer-events:none;
+  transition:
+    opacity .38s ease,
+    transform .5s cubic-bezier(.2,.9,.2,1),
+    box-shadow .3s ease;
 }
-
-.hb:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 40px rgba(208,164,92,.55)
-}
-
-.hb:after{
-  content:"";
+.holo-node b{display:block;color:#9b6b13;font-size:9px;letter-spacing:.16em;margin-bottom:3px}
+.holo-live.expanded .holo-node{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.holo-live.expanded .holo-node:hover{box-shadow:0 14px 38px rgba(56,40,14,.12),0 0 28px rgba(185,137,39,.16)}
+.hn-client{left:50%;top:7%;transition-delay:.03s}
+.hn-wa{left:17%;top:25%;transition-delay:.08s}
+.hn-knowledge{left:83%;top:25%;transition-delay:.13s}
+.hn-crm{left:11%;top:59%;transition-delay:.18s}
+.hn-ai{left:89%;top:59%;transition-delay:.23s}
+.hn-automation{left:28%;top:88%;transition-delay:.28s}
+.hn-action{left:72%;top:88%;transition-delay:.33s}
+.holo-toggle{
   position:absolute;
-  top:0;
-  left:-60%;
-  width:40%;
-  height:100%;
-  background:linear-gradient(
-    100deg,
-    transparent,
-    rgba(255,255,255,.45),
-    transparent
-  );
-  transform:skewX(-20deg);
-  animation:gl 2.8s infinite
+  z-index:6;
+  left:50%;
+  bottom:4px;
+  transform:translateX(-50%);
+  border:1px solid rgba(185,137,39,.38);
+  background:rgba(255,250,241,.78);
+  color:#5f4514;
+  border-radius:999px;
+  padding:8px 14px;
+  font:800 10px var(--sans);
+  letter-spacing:.04em;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
 }
-
-@keyframes gl{
-  to{left:130%}
-}
-
-.hb.disabled{
-  background:rgba(28,26,22,.8);
-  color:var(--mut);
-  border:1px solid var(--ln);
-  box-shadow:none;
-  cursor:default;
-  pointer-events:none
-}
-
-.hb.disabled:after{
-  display:none
-}
-
-/* PLANS · flujo y nota */
-
-.logic{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:36px;
-  font-weight:700;
-  font-size:13px
-}
-
-.logic span{
-  padding:12px 18px;
-  color:var(--ink)
-}
-
-.logic em{
-  align-self:center;
-  color:var(--gold);
-  font-style:normal
-}
-
-.note-soon{
-  text-align:center;
-  margin-top:28px;
-  padding:18px 24px;
-  color:var(--mut);
-  font-size:14px;
-  line-height:1.5
-}
-
-.note-soon strong{
-  color:var(--gold)
-}
-
-@media(prefers-reduced-motion:reduce){
-  .soon-badge,.hb:after{animation:none}
-}
-
-/* SCALE */
-
-.scale{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
-
-.scale-card{
-  padding:26px
-}
-
-.scale-card .phase{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:.16em;
-  font-weight:800
-}
-
-.scale-card h3{
-  font-size:19px;
-  margin:8px 0
-}
-
-.scale-card p{
-  color:var(--mut);
-  font-size:13px
-}
-
-/* SECURITY / PLATFORM */
-
-.platform{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:24px;
-  align-items:stretch
-}
-
-.platform-main{
-  padding:30px
-}
-
-.platform-main h3{
-  font-size:26px
-}
-
-.platform-main p{
-  color:var(--mut);
-  margin-top:12px;
-  max-width:650px
-}
-
-.checks{
-  margin-top:22px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px
-}
-
-.check{
-  padding:12px 14px;
-  border:1px solid var(--ln2);
-  border-radius:10px;
-  background:rgba(28,26,22,.3);
-  font-size:12px;
-  color:#c9c4ba
-}
-
-.check b{
-  color:var(--gold)
-}
-
-.platform-side{
-  padding:30px
-}
-
-.platform-side .mini{
-  padding:13px 0;
-  border-bottom:1px solid var(--ln2)
-}
-
-.platform-side .mini:last-child{
-  border-bottom:0
-}
-
-.mini b{
-  display:block;
-  color:var(--gold);
-  font-size:13px
-}
-
-.mini span{
-  color:var(--mut);
-  font-size:12px
-}
-
-/* CTA */
-
-.final{
-  padding:90px 0 100px
-}
-
-.final-box{
-  text-align:center;
-  padding:60px 30px;
-  position:relative;
-  overflow:hidden
-}
-
-.final-box:before{
-  content:"";
+.holo-toggle:hover{background:#fffaf1}
+.holo-toggle .chev{display:inline-block;margin-left:7px;transition:transform .25s ease}
+.holo-live.expanded .holo-toggle .chev{transform:rotate(180deg)}
+.holo-sequence{
   position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
+  z-index:2;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(208,164,92,.1),transparent 68%);
-  pointer-events:none
+  width:72%;
+  height:72%;
+  border-radius:50%;
+  border:1px solid rgba(185,137,39,.16);
+  opacity:.25;
+  pointer-events:none;
+}
+@keyframes holoSpin{to{transform:rotate(360deg)}}
+@keyframes holoPulse{50%{transform:scale(1.045);opacity:.68}}
+@keyframes holoDash{to{stroke-dashoffset:-120}}
+@media(max-width:1030px){
+  .holo-live{height:500px;max-width:760px}
+}
+@media(max-width:680px){
+  .holo-live{height:450px}
+  .holo-live::before{width:390px;height:390px}
+  .holo-live::after{width:290px;height:290px}
+  .holo-core{width:150px;height:150px}
+  .holo-core strong{font-size:21px}
+  .holo-node{min-width:112px;padding:9px 10px;font-size:9px}
+  .hn-wa{left:20%;top:25%}.hn-knowledge{left:80%;top:25%}
+  .hn-crm{left:16%;top:60%}.hn-ai{left:84%;top:60%}
+  .hn-automation{left:29%;top:86%}.hn-action{left:71%;top:86%}
 }
 
-.final-box>*{
-  position:relative;
-  z-index:1
+.features{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:18px}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.feature{padding:18px 18px;display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;position:relative}
+.feature:not(:last-child)::after{content:"";position:absolute;right:0;height:37px;width:1px;background:var(--line)}
+.ico{width:34px;height:34px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold3);font-weight:900;font-size:15px}
+.feature b{display:block;font-size:15px} .feature span{font-size:10px;color:#777064}
+
+section{padding:58px 0}
+.section-head{display:flex;justify-content:space-between;gap:28px;align-items:flex-end;margin-bottom:20px}
+.section-head h2{font-size:clamp(31px,3.4vw,48px);line-height:1.03}
+.section-head p{max-width:390px;color:#666055;font-size:13px;line-height:1.55;margin:0}
+.plans{padding-top:42px}
+.plan-grid{display:grid;grid-template-columns:1.27fr .86fr .86fr;gap:16px;align-items:stretch}
+.card{background:rgba(255,255,255,.30);border:1px solid rgba(66,52,32,.13);border-radius:18px;padding:23px;box-shadow:0 12px 42px rgba(76,55,18,.045);position:relative}
+.card.featured{border:1.5px solid #b98927;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(246,231,198,.30));box-shadow:0 18px 50px rgba(132,93,18,.10)}
+.badge{
+position:static;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+float:right;
+margin:0 0 10px 12px;
+background:linear-gradient(135deg,#f0d995,#d3a64e);
+padding:6px 11px;
+border-radius:999px;
+font-size:9px;
+font-weight:850;
+line-height:1;
+white-space:nowrap;
 }
+.badge.soon{background:#efede8;color:#625b50}
+.card h3{font-size:30px}
+.subtitle{color:#9b6b13;font-weight:800;font-size:14px;margin:2px 0 7px}
+.desc{color:#686157;font-size:13px;line-height:1.45;margin:0 0 12px}
+.price{padding:11px 0;border-top:1px solid rgba(185,137,39,.18);border-bottom:1px solid rgba(185,137,39,.18);margin:8px 0 14px}
+.price small{display:block;text-transform:uppercase;letter-spacing:.15em;font-size:9px;color:#877e71;margin-top:6px}
+.price strong{display:block;color:#9b6b13;font-size:15px;margin-top:2px}
+.starter-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;clear:both}
+.checks{list-style:none;padding:0;margin:7px 0 16px;display:grid;gap:7px}
+.checks li{font-size:12px;color:#5f584e;padding-left:20px;position:relative}
+.checks li::before{content:"✓";position:absolute;left:0;color:#9f741d;font-weight:900}
+.card .btn{width:100%;min-height:42px}
+.disabled{opacity:.62;cursor:default}
+.business-card,.pro-card{display:flex;flex-direction:column}
+.business-card .btn,.pro-card .btn{margin-top:auto}
 
-.final-box h2{
-  max-width:800px;
-  margin:12px auto
+.solution-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.solution{padding:20px;background:rgba(255,255,255,.28);border:1px solid var(--line);border-radius:16px}
+.solution strong{font-family:var(--serif);font-size:21px}
+.solution p{font-size:12px;line-height:1.5;color:#6f675b}
+
+.flow-strip{background:#17130e;color:#fff;border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.flow-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.flow-step{padding:16px 10px;border:1px solid rgba(218,173,85,.25);border-radius:13px;text-align:center;background:rgba(255,255,255,.03)}
+.flow-step b{display:block;color:#dfba6e;font-size:12px;letter-spacing:.12em}
+.flow-step span{display:block;font-size:10px;color:#bdb5aa;margin-top:5px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 35px}
+.footer-grid{display:grid;grid-template-columns:1fr 2fr;gap:20px;align-items:center}
+.footer-brand strong{font-family:var(--serif);letter-spacing:.15em;font-size:18px}
+.footer-brand span{display:block;font-size:8px;color:#9a6e17;letter-spacing:.28em;margin-top:5px}
+.footer-links{display:flex;gap:20px;justify-content:flex-end;flex-wrap:wrap}
+.footer-links button,.footer-links a{border:0;background:transparent;padding:0;color:#625b52;font:600 11px var(--sans);cursor:pointer;text-decoration:none}
+.utility-row{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:22px;flex-wrap:wrap;color:#756e64;font-size:10px}
+
+.cookie{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:300;width:min(760px,calc(100% - 30px));background:rgba(255,250,241,.97);border:1px solid rgba(158,113,28,.28);border-radius:15px;box-shadow:0 20px 70px rgba(45,31,10,.18);padding:15px;display:none;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.cookie.show{display:grid} .cookie p{margin:0;color:#5e564c;font-size:11px;line-height:1.45} .cookie-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cookie button{border:1px solid rgba(23,19,14,.22);background:transparent;border-radius:999px;padding:9px 13px;font-weight:800;font-size:10px;cursor:pointer}
+.cookie .accept{background:#17130e;color:#fff}
+
+.modal{position:fixed;inset:0;z-index:500;background:rgba(12,9,5,.73);backdrop-filter:blur(13px);display:none;align-items:center;justify-content:center;padding:18px}
+.modal.open{display:flex}
+.modal-panel{width:min(980px,100%);max-height:min(88vh,860px);overflow:auto;background:#fbf6ee;border:1px solid rgba(210,165,73,.48);border-radius:23px;box-shadow:0 28px 90px rgba(0,0,0,.32);position:relative}
+.modal-close{position:sticky;float:right;top:12px;right:12px;margin:12px 12px 0 0;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff8ed;cursor:pointer;font-size:18px}
+.legal-inner{padding:44px 48px 54px;max-width:820px;margin:auto}
+.legal-inner h2{font-size:38px;margin-bottom:5px} .legal-inner h3{font-size:20px;margin-top:28px;color:#8f671a}
+.legal-inner p,.legal-inner li{font-size:14px;line-height:1.7;color:#5e574d}
+.legal-inner .updated{font-size:11px;color:#8a8276}
+.legal-inner ul{padding-left:18px}
+
+.flow-modal{padding:40px}
+.flow-modal h2{font-size:42px;text-align:center;margin-bottom:4px}
+.flow-modal>p{text-align:center;color:#777064;margin:0 auto 25px;max-width:700px}
+.diagram{position:relative;height:510px;background:
+ radial-gradient(circle at center,rgba(212,165,73,.16),transparent 34%),
+ #14110d;border-radius:19px;overflow:hidden;border:1px solid rgba(219,174,81,.35)}
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,#f0ce82 0 3%,#9f741d 4%,#21190e 32%,#100d09 68%);color:#f7dd9f;border:1px solid #d5a958;box-shadow:0 0 70px rgba(215,173,85,.42);animation:pulse 2.4s infinite}
+.core strong{font:700 24px var(--serif);letter-spacing:.08em} .core span{font-size:9px;letter-spacing:.16em}
+.node{position:absolute;background:rgba(29,23,15,.93);color:#fff;border:1px solid rgba(218,173,85,.48);box-shadow:0 0 28px rgba(208,164,92,.14);border-radius:999px;padding:11px 16px;font-size:11px;font-weight:800;animation:appear .55s both}
+.n1{left:50%;top:8%;transform:translateX(-50%);animation-delay:.05s}
+.n2{left:13%;top:24%;animation-delay:.12s} .n3{right:13%;top:24%;animation-delay:.20s}
+.n4{left:7%;top:49%;animation-delay:.28s} .n5{right:7%;top:49%;animation-delay:.36s}
+.n6{left:17%;bottom:13%;animation-delay:.44s} .n7{right:17%;bottom:13%;animation-delay:.52s}
+.diagram-lines{position:absolute;inset:0;width:100%;height:100%}
+.diagram-lines line{stroke:rgba(220,179,91,.53);stroke-width:1.1;stroke-dasharray:5 5;animation:dash 9s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-100}} @keyframes appear{from{opacity:0;transform:scale(.75)}to{opacity:1}} @keyframes pulse{50%{box-shadow:0 0 105px rgba(215,173,85,.68)}}
+
+#error-panel pre{white-space:pre-wrap;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:#17130e;color:#f4e5bd;padding:15px;border-radius:12px;max-height:420px;overflow:auto}
+
+@media(max-width:1030px){
+ .nav{grid-template-columns:1fr auto} .navlinks{display:none} .menu-btn{display:inline-grid;place-items:center} .login{display:none}
+ .hero-grid{grid-template-columns:1fr} .hero-copy{max-width:760px;margin:auto;text-align:center} h1{margin:auto}
+ .lead{margin-left:auto;margin-right:auto} .actions{justify-content:center}
+ .feature-grid{grid-template-columns:repeat(2,1fr)} .feature:nth-child(2)::after{display:none}
+ .plan-grid{grid-template-columns:1fr 1fr} .card.featured{grid-column:1/-1} .starter-layout{grid-template-columns:1fr 1fr}
+ .solution-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-.final-box p{
-  max-width:600px;
-  margin:15px auto;
-  color:var(--mut)
+@media(max-width:680px){
+ .wrap{width:min(100% - 24px,1290px)} .nav{height:66px} .logo-img{width:132px;height:50px} .logo-copy strong{font-size:18px} .logo-copy span{font-size:7px}
+ .hero{padding-top:24px} h1{font-size:44px} .lead{font-size:15px}
+ .holo-cta{min-width:0;width:auto;max-width:88%;bottom:4px;padding:0 16px;font-size:10px} .holo-caption{display:none} .holo-frame{transform:none}.holo-img{width:118%;margin-left:-9%}
+ .feature-grid{grid-template-columns:1fr 1fr} .feature{grid-template-columns:31px 1fr;padding:14px 7px} .ico{width:28px;height:28px;font-size:12px}
+ .section-head{display:block} .section-head p{margin-top:12px}
+ .plan-grid{grid-template-columns:1fr} .card.featured{grid-column:auto} .starter-layout{grid-template-columns:1fr}
+ .solution-grid{grid-template-columns:1fr} .flow-row{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr} .footer-links,.utility-row{justify-content:flex-start}
+ .cookie{grid-template-columns:1fr} .legal-inner{padding:36px 24px 45px} .flow-modal{padding:24px 13px} .diagram{height:570px}
+ .node{font-size:9px;padding:9px 11px} .n2{left:4%;top:20%} .n3{right:4%;top:20%} .n4{left:4%;top:45%} .n5{right:4%;top:45%} .n6{left:5%;bottom:11%} .n7{right:5%;bottom:11%}
 }
-
-.final-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:25px
-}
-
-/* FOOTER */
-
-.ft{
-  padding:40px 0;
-  text-align:center;
-  color:var(--mut);
-  font-size:13px;
-  border-top:1px solid var(--ln);
-  position:relative;
-  z-index:1
-}
-
-.ft strong{
-  color:var(--gold)
-}
-
-.ft a{
-  color:var(--gold);
-  font-weight:600;
-  text-decoration:none
-}
-
-.ft-links{
-  margin-top:13px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
-  .navlinks a:not(.navcta){
-    display:none
-  }
-
-  .arch-grid{
-    grid-template-columns:1fr;
-    max-width:620px;
-    margin:auto
-  }
-
-  .arch-core{
-    min-height:270px
-  }
-
-  .flow{
-    grid-template-columns:1fr;
-    max-width:500px;
-    margin:auto
-  }
-
-  .flow-arrow{
-    display:none
-  }
-
-  .sectors{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .use-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .platform{
-    grid-template-columns:1fr
-  }
-}
-
-@media(max-width:900px){
-
-  .g3{
-    grid-template-columns:1fr;
-    max-width:440px;
-    margin:0 auto
-  }
-
-  .scale{
-    grid-template-columns:1fr;
-    max-width:500px;
-    margin:auto
-  }
-
-  section{
-    padding:65px 0
-  }
-
-  #stage{
-    height:500px
-  }
-}
-
-@media(max-width:620px){
-
-  .w{
-    width:min(100% - 22px,1180px)
-  }
-
-  .hero{
-    padding:55px 0 20px
-  }
-
-  .hero p{
-    font-size:15px
-  }
-
-  .hero-actions .btn{
-    width:100%
-  }
-
-  #stage{
-    height:auto;
-    min-height:0
-  }
-
-  .sectors,
-  .use-grid{
-    grid-template-columns:1fr
-  }
-
-  .checks{
-    grid-template-columns:1fr
-  }
-
-  .nav{
-    min-height:60px
-  }
-
-  .brand{
-    font-size:12px
-  }
-
-  .navcta{
-    padding:8px 11px
-    font-size:11px!important
-  }
-}
-</style>
-
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
-<meta name="color-scheme" content="dark">
-<style>
-:root{--bg:#0d0b08;--ink:#f5f0e6;--mut:#a39b86;--gold:#d0a45c;--gd:#b58a45;--ln:rgba(208,164,92,.28)}
-.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip{position:absolute;left:12px;top:-60px;z-index:9999;background:var(--gold);color:#14110c;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none}
-.skip:focus{top:12px}
-:focus-visible{outline:3px solid #ffe2a6;outline-offset:3px;border-radius:6px}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-#caa-cb{position:fixed;left:16px;right:16px;bottom:16px;z-index:9000;max-width:720px;margin:auto;padding:20px 22px;background:rgba(20,18,14,.97);border:1px solid var(--ln);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.6);color:var(--ink);font:14px/1.5 "DM Sans",system-ui,sans-serif}
-#caa-cb h2{margin:0 0 6px;font:800 16px "Sora",system-ui,sans-serif}
-#caa-cb p{margin:0 0 14px;color:#cfc8b8}
-#caa-cb a,#legal a{color:var(--gold)}
-#caa-cb .row{display:flex;gap:10px;flex-wrap:wrap}
-#caa-cb button,.cp-link{font:700 14px "DM Sans",system-ui,sans-serif;padding:11px 18px;border-radius:10px;cursor:pointer;border:1px solid var(--ln);background:transparent;color:var(--ink)}
-#caa-cb button.ok{background:linear-gradient(135deg,var(--gold),var(--gd));color:#14110c;border:0}
-.cp-link{border:0;padding:0;color:var(--gold);text-decoration:underline;font-weight:600;font-size:inherit}
-.lg-w{width:min(780px,calc(100% - 32px));margin:auto}
-#legal{padding:40px 0 60px}
-#legal h1{font:800 clamp(28px,5vw,40px)/1.15 "Sora",system-ui,sans-serif;margin:0 0 6px}
-#legal h2{font:700 20px "Sora",system-ui,sans-serif;margin:34px 0 8px;color:var(--gold)}
-#legal .upd{color:var(--mut);margin:0 0 20px}
-#legal ul{padding-left:22px}
-#legal table{width:100%;border-collapse:collapse;font-size:14px}
-#legal th,#legal td{text-align:left;padding:10px;border:1px solid var(--ln);vertical-align:top}
-#legal nav a{margin-right:16px}
-#legal .tw{overflow-x:auto}
-
-[hidden]{display:none!important}
-#legal:focus{outline:none}
-#legal .back{display:inline-block;margin-bottom:18px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
-
 <body>
-
 <a class="skip" href="#main">Saltar al contenido</a>
-<canvas id="stars" aria-hidden="true"></canvas>
 
 <header>
-  <div class="w nav">
-
-<a class="brand" href="#" style="text-decoration:none">
-  <b>C.A.A.</b> · CARVAJAL
-</a>
-
-<nav class="navlinks" aria-label="Principal">
-  <a href="#arquitectura">Arquitectura</a>
-  <a href="#soluciones">Soluciones</a>
-  <a href="#planes">Planes</a>
-  <a class="navcta" href="#contacto">Contactar</a>
-</nav>
-
+  <div class="wrap nav">
+    <a href="#inicio" class="logo-link" aria-label="CARVAJAL inicio">
+      <img class="logo-img" src="data:image/webp;base64,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" alt="Logotipo oficial CARVAJAL">
+      <div class="logo-copy"><strong>CARVAJAL</strong><span>AGENCIA DE AUTOMATIZACIONES</span></div>
+    </a>
+    <nav class="navlinks" aria-label="Navegación principal">
+      <a href="#soluciones">Soluciones</a><a href="#funciona">Cómo funciona</a><a href="#planes">Planes</a><a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="login" data-app-login href="https://carvajal-app-production.up.railway.app/login">Ingresar</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+    </div>
   </div>
 </header>
 
-<main id="main" tabindex="-1">
+<main id="main">
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">AUTOMATIZA · CONECTA · ESCALA</div>
+      <h1>Automatizamos<br>la atención, operación<br>y crecimiento de<br><span class="gold">tu empresa.</span></h1>
+      <p class="lead">Implementamos soluciones de automatización con WhatsApp, inteligencia artificial, conocimiento empresarial, CRM y procesos integrados para que tu negocio atienda mejor y pueda escalar.</p>
+      <p class="availability"><strong>Starter está disponible ahora.</strong> Business y Pro se encuentran en desarrollo.</p>
+      <div class="actions">
+        <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20probar%20Starter%207%20d%C3%ADas%20gratis.">Probar Starter 7 días gratis <span class="arrow">→</span></a>
+        <a class="btn btn-light" href="#planes">Ver planes</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="holo-live" id="heroHologram" aria-label="Flujo interactivo CARVAJAL">
+        <svg class="holo-lines" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="500" y1="325" x2="500" y2="50"/>
+          <line x1="500" y1="325" x2="170" y2="165"/>
+          <line x1="500" y1="325" x2="830" y2="165"/>
+          <line x1="500" y1="325" x2="110" y2="385"/>
+          <line x1="500" y1="325" x2="890" y2="385"/>
+          <line x1="500" y1="325" x2="280" y2="572"/>
+          <line x1="500" y1="325" x2="720" y2="572"/>
+        </svg>
 
-<!-- HERO -->
+        <div class="holo-sequence" aria-hidden="true"></div>
 
-<div class="w hero">
+        <button class="holo-core" id="holoCore" type="button" aria-expanded="false" aria-controls="heroHologram">
+          <span>
+            <strong>CARVAJAL</strong>
+            <span>AUTOMATION CORE</span>
+            <small>Toca para desplegar</small>
+          </span>
+        </button>
 
-  <div class="eb">
-    CARVAJAL V1.2 · AUTOMATIZACIÓN INTELIGENTE
+        <div class="holo-node hn-client"><b>01 · ENTRADA</b>CLIENTE</div>
+        <div class="holo-node hn-wa"><b>02 · CANAL</b>WHATSAPP</div>
+        <div class="holo-node hn-knowledge"><b>03 · CONTEXTO</b>KNOWLEDGE</div>
+        <div class="holo-node hn-crm"><b>04 · DATOS</b>CRM</div>
+        <div class="holo-node hn-ai"><b>05 · INTELIGENCIA</b>AI ENGINE</div>
+        <div class="holo-node hn-automation"><b>06 · PROCESO</b>AUTOMATION</div>
+        <div class="holo-node hn-action"><b>07 · RESULTADO</b>ACCIÓN</div>
+
+        <button class="holo-toggle" id="holoToggle" type="button" aria-expanded="false">
+          Ver flujo <span class="chev">⌄</span>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <h1>
-    Una inteligencia para
-    <span>toda tu operación.</span>
-  </h1>
-
-  <p>
-    CARVAJAL conecta atención, conocimiento empresarial, CRM,
-    ventas y automatización en una sola arquitectura preparada
-    para crecer contigo.
-  </p>
-
-  <div class="hero-actions">
-
-<a
-  class="btn btn-gold"
-  target="_blank"
-  rel="noopener noreferrer"
-  href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20información%20sobre%20la%20Plataforma%20CARVAJAL%20V1.2."
->
-  Solicitar información
-</a>
-
-<a class="btn btn-dark" href="#arquitectura">
-  Explorar plataforma
-</a>
-
+  <div class="features">
+    <div class="wrap feature-grid">
+      <div class="feature"><div class="ico">◷</div><div><b>24/7</b><span>Atención automática</span></div></div>
+      <div class="feature"><div class="ico">◉</div><div><b>WhatsApp</b><span>Canal principal</span></div></div>
+      <div class="feature"><div class="ico">✦</div><div><b>IA + RAG</b><span>Respuestas con contexto</span></div></div>
+      <div class="feature"><div class="ico">▥</div><div><b>CRM</b><span>Clientes y leads</span></div></div>
+    </div>
   </div>
-
-  <div class="hero-meta">
-    <span>WhatsApp + IA</span>
-    <span>CRM</span>
-    <span>Knowledge</span>
-    <span>Automatización</span>
-    <span>Multiempresa</span>
-  </div>
-
-</div>
-
-<!-- CORE 3D -->
-
-<div class="w">
-  <div id="stage" class="glass"></div>
-</div>
-
-<!-- ARQUITECTURA -->
-
-<section id="arquitectura">
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Arquitectura CARVAJAL
-  </div>
-
-  <h2>
-    Un solo <span>Core.</span>
-    Múltiples capacidades.
-  </h2>
-
-  <p>
-    La plataforma está diseñada para separar identidad,
-    inteligencia, conocimiento y operación, permitiendo
-    que cada empresa trabaje dentro de su propio entorno.
-  </p>
-
-</div>
-
-<div class="arch-grid">
-
-  <div class="arch-col">
-
-    <article class="glass arch-card">
-      <div class="icon">01 · Entrada</div>
-      <h3>Cliente</h3>
-      <p>
-        Identidad, conversaciones, historial y contexto
-        de cada cliente.
-      </p>
-    </article>
-
-    <article class="glass arch-card">
-      <div class="icon">02 · Conocimiento</div>
-      <h3>Knowledge</h3>
-      <p>
-        Información empresarial utilizada por la IA
-        para responder con contexto.
-      </p>
-    </article>
-
-  </div>
-
-
-  <article class="glass arch-core">
-
-    <strong>CARVAJAL</strong>
-
-    <span>CORE V1.2</span>
-
-    <p>
-      El núcleo que conecta las diferentes capas
-      de atención, inteligencia, datos y automatización.
-    </p>
-
-  </article>
-
-
-  <div class="arch-col">
-
-    <article class="glass arch-card">
-      <div class="icon">03 · Inteligencia</div>
-      <h3>AI Engine</h3>
-      <p>
-        Motor de inteligencia que interpreta solicitudes
-        y genera respuestas según el contexto empresarial.
-      </p>
-    </article>
-
-    <article class="glass arch-card">
-      <div class="icon">04 · Operación</div>
-      <h3>Automation</h3>
-      <p>
-        Procesos, seguimiento, ventas, pedidos,
-        citas y operaciones automatizadas.
-      </p>
-    </article>
-
-  </div>
-
-</div>
-
-  </div>
-
 </section>
 
-<!-- FLUJO -->
-
-<section>
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Cómo funciona
+<section id="planes" class="plans">
+ <div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">PLANES</div><h2>Soluciones para cada etapa<br>de tu negocio.</h2></div>
+    <p>Comienza con Starter y lleva tu negocio al siguiente nivel. Business y Pro se encuentran en desarrollo.</p>
   </div>
+  <div class="plan-grid">
+    <article class="card featured">
+      <div class="badge">Disponible ahora</div>
+      <div class="starter-layout">
+        <div>
+          <h3>Starter</h3><div class="subtitle">Atención automatizada</div>
+          <p class="desc">Ideal para pequeños negocios que necesitan responder y atender automáticamente.</p>
+          <div class="price">
+            <small>Instalación</small><strong>Bs 2.500 (Bolivia) · USD 250 (internacional)</strong>
+            <small>Mensualidad</small><strong>Bs 750 (Bolivia) · USD 75 (internacional)</strong>
+          </div>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20activar%20el%20Plan%20Starter.">Probar 7 días gratis <span class="arrow">→</span></a>
+        </div>
+        <ul class="checks">
+          <li>WhatsApp + IA</li><li>RAG (conocimiento empresarial)</li><li>Atención automática</li><li>Historial de conversaciones</li><li>Clientes y contactos</li><li>CRM y Leads: Básico</li><li>Avisos de leads al responsable</li><li>Handoff y respuesta humana</li><li>Panel Starter</li><li>Demo de 7 días sujeta a activación</li>
+        </ul>
+      </div>
+    </article>
 
-  <h2>
-    Del mensaje a la <span>acción.</span>
-  </h2>
+    <article class="card business-card">
+      <div class="badge soon">En desarrollo</div>
+      <h3>Business</h3><div class="subtitle">Operación y crecimiento</div>
+      <p class="desc">Más automatización, integraciones y control para negocios en expansión.</p>
+      <ul class="checks"><li>Todo lo de Starter</li><li>Integraciones avanzadas</li><li>CRM y leads avanzado</li><li>Reportes y analítica</li><li>Automatizaciones personalizadas</li></ul>
+      <span class="btn btn-light disabled">Próximamente</span>
+    </article>
 
-  <p>
-    CARVAJAL transforma una conversación en información,
-    una respuesta o un proceso operativo.
-  </p>
-
-</div>
-
-<div class="flow">
-
-  <div class="glass flow-item">
-    <strong>CLIENTE</strong>
-    <p>Pregunta, solicita o inicia una conversación.</p>
-    <span class="flow-arrow">→</span>
+    <article class="card pro-card">
+      <div class="badge soon">En desarrollo</div>
+      <h3>Pro</h3><div class="subtitle">Automatización sin límites</div>
+      <p class="desc">Solución completa para operaciones más avanzadas y equipos en crecimiento.</p>
+      <ul class="checks"><li>Todo lo de Business</li><li>Múltiples canales</li><li>Automatizaciones avanzadas con IA</li><li>Soporte prioritario</li><li>Desarrollos e integraciones a medida</li></ul>
+      <span class="btn btn-light disabled">Próximamente</span>
+    </article>
   </div>
-
-  <div class="glass flow-item">
-    <strong>WHATSAPP</strong>
-    <p>La conversación entra al entorno CARVAJAL.</p>
-    <span class="flow-arrow">→</span>
-  </div>
-
-  <div class="glass flow-item">
-    <strong>CORE</strong>
-    <p>Identifica contexto, empresa y conversación.</p>
-    <span class="flow-arrow">→</span>
-  </div>
-
-  <div class="glass flow-item">
-    <strong>AI ENGINE</strong>
-    <p>Interpreta la solicitud y consulta conocimiento.</p>
-    <span class="flow-arrow">→</span>
-  </div>
-
-  <div class="glass flow-item">
-    <strong>ACCIÓN</strong>
-    <p>Responde, registra, sigue o ejecuta.</p>
-  </div>
-
-</div>
-
-  </div>
-
+ </div>
 </section>
-
-<!-- SOLUCIONES -->
 
 <section id="soluciones">
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Soluciones por sector
+ <div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">SOLUCIONES</div><h2>Una plataforma.<br><span class="gold">Diferentes negocios.</span></h2></div>
+    <p>CARVAJAL adapta la atención y automatización al conocimiento, procesos y necesidades de cada empresa.</p>
   </div>
-
-  <h2>
-    Una plataforma.
-    <span>Diferentes negocios.</span>
-  </h2>
-
-  <p>
-    La arquitectura CARVAJAL puede adaptarse al conocimiento,
-    procesos y necesidades de cada empresa.
-  </p>
-
-</div>
-
-
-<div class="sectors">
-
-  <article class="glass sector">
-    <b>Ferreterías</b>
-    <p>
-      Consultas de productos, precios, clientes,
-      pedidos y seguimiento comercial.
-    </p>
-    <span>01</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Farmacias</b>
-    <p>
-      Información comercial autorizada, productos, pedidos y procesos de entrega.
-      No realiza prescripción ni recomendación clínica.
-    </p>
-    <span>02</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Restaurantes</b>
-    <p>
-      Menú, pedidos, atención al cliente,
-      confirmaciones y seguimiento.
-    </p>
-    <span>03</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Clínicas</b>
-    <p>
-      Información administrativa, agenda, citas, recordatorios y seguimiento.
-      No realiza diagnóstico, prescripción ni tratamiento.
-    </p>
-    <span>04</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Inmobiliarias</b>
-    <p>
-      Captación de leads, propiedades,
-      seguimiento y clasificación.
-    </p>
-    <span>05</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Turismo</b>
-    <p>
-      Información, consultas, reservas,
-      seguimiento y atención automatizada.
-    </p>
-    <span>06</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Servicios profesionales</b>
-    <p>
-      Atención inicial, clientes, agenda,
-      seguimiento y procesos internos.
-    </p>
-    <span>07</span>
-  </article>
-
-  <article class="glass sector">
-    <b>Empresas</b>
-    <p>
-      Automatización de procesos y conexión
-      entre atención y operación.
-    </p>
-    <span>08</span>
-  </article>
-
-</div>
-
+  <div class="solution-grid">
+    <article class="solution"><strong>Ferreterías</strong><p>Productos, precios, consultas, leads, pedidos y seguimiento comercial.</p></article>
+    <article class="solution"><strong>Restaurantes</strong><p>Menú, atención, pedidos, confirmaciones y seguimiento.</p></article>
+    <article class="solution"><strong>Clínicas</strong><p>Información administrativa, agenda y recordatorios; sin diagnóstico ni prescripción.</p></article>
+    <article class="solution"><strong>Inmobiliarias</strong><p>Captación y clasificación de leads, propiedades y seguimiento.</p></article>
+    <article class="solution"><strong>Farmacias</strong><p>Información comercial autorizada, productos, pedidos y entrega; sin recomendación clínica.</p></article>
+    <article class="solution"><strong>Turismo</strong><p>Información, consultas, reservas y seguimiento automatizado.</p></article>
+    <article class="solution"><strong>Servicios</strong><p>Atención inicial, clientes, agenda, seguimiento y procesos internos.</p></article>
+    <article class="solution"><strong>Empresas</strong><p>Automatización de procesos y conexión entre atención y operación.</p></article>
   </div>
-
+ </div>
 </section>
 
-<!-- CASOS DE USO -->
-
-<section>
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Casos de uso
+<section id="funciona">
+ <div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">CÓMO FUNCIONA</div><h2>Del mensaje<br>a la acción.</h2></div>
+    <p>El núcleo identifica el negocio y el contexto, consulta conocimiento autorizado y decide si responder, registrar, escalar o ejecutar un proceso.</p>
   </div>
-
-  <h2>
-    No solo responde.
-    <span>Hace avanzar el negocio.</span>
-  </h2>
-
-  <p>
-    Las capacidades disponibles dependen del plan
-    contratado y del proceso que cada empresa necesite automatizar.
-  </p>
-
-</div>
-
-
-<div class="use-grid">
-
-  <article class="glass use">
-
-    <div class="num">01 · ATENCIÓN</div>
-
-    <h3>Atención automática</h3>
-
-    <p>
-      Respuestas basadas en la información autorizada
-      de la empresa y en el contexto de la conversación.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Cliente → IA → Knowledge → Respuesta
+  <div class="flow-strip">
+    <div class="flow-row">
+      <div class="flow-step"><b>CLIENTE</b><span>Pregunta o solicita.</span></div>
+      <div class="flow-step"><b>WHATSAPP</b><span>Recibe la conversación.</span></div>
+      <div class="flow-step"><b>CORE</b><span>Identifica tenant y contexto.</span></div>
+      <div class="flow-step"><b>AI ENGINE</b><span>Interpreta + Knowledge.</span></div>
+      <div class="flow-step"><b>ACCIÓN</b><span>Responde, registra o escala.</span></div>
     </div>
-
-  </article>
-
-
-  <article class="glass use">
-
-    <div class="num">02 · CRM</div>
-
-    <h3>Gestión de clientes</h3>
-
-    <p>
-      Registro de clientes, conversaciones, leads
-      e información relevante para futuras interacciones.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Conversación → Cliente → Historial
-    </div>
-
-  </article>
-
-
-  <article class="glass use">
-
-    <div class="num">03 · VENTAS</div>
-
-    <h3>Captación de leads</h3>
-
-    <p>
-      Identificación y seguimiento de oportunidades
-      comerciales dentro del flujo de atención.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Consulta → Lead → Seguimiento
-    </div>
-
-  </article>
-
-
-  <article class="glass use">
-
-    <div class="num">04 · PEDIDOS</div>
-
-    <h3>Pedidos y operaciones</h3>
-
-    <p>
-      Procesos orientados a pedidos y operaciones,
-      disponibles según el nivel contratado.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Cliente → Pedido → Registro → Acción
-    </div>
-
-  </article>
-
-
-  <article class="glass use">
-
-    <div class="num">05 · AGENDA</div>
-
-    <h3>Citas y seguimiento</h3>
-
-    <p>
-      Gestión de solicitudes de agenda y procesos
-      posteriores de seguimiento.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Solicitud → Agenda → Confirmación
-    </div>
-
-  </article>
-
-
-  <article class="glass use">
-
-    <div class="num">06 · AUTOMATION</div>
-
-    <h3>Procesos automatizados</h3>
-
-    <p>
-      Automatizaciones que permiten pasar de una simple
-      respuesta a una acción dentro de la operación.
-    </p>
-
-    <div class="path">
-      <strong>Flujo:</strong>
-      Evento → Regla → Automatización → Resultado
-    </div>
-
-  </article>
-
-</div>
-
   </div>
-
+ </div>
 </section>
 
-<!-- PLANES -->
-
-<section id="planes">
-  <div class="w">
-
-    <div class="head">
-      <div class="eb">Plataforma CAA V1.0</div>
-      <h2>Un solo Core. <span>Tres planes.</span></h2>
-      <p>Diferentes niveles de poder. Todo en una misma plataforma.</p>
+<section id="contacto">
+ <div class="wrap">
+  <div class="card" style="text-align:center;padding:45px 24px;background:linear-gradient(135deg,rgba(255,255,255,.56),rgba(234,211,164,.24))">
+    <div class="eyebrow">CARVAJAL</div>
+    <h2 style="font-size:clamp(34px,4vw,56px)">Tu empresa ya recibe mensajes.<br><span class="gold">Ahora puede hacer algo con ellos.</span></h2>
+    <p class="lead" style="margin:16px auto 22px">Empieza con atención automatizada y evoluciona hacia procesos, inteligencia y operaciones más avanzadas.</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20informaci%C3%B3n%20sobre%20Starter.">Contactar por WhatsApp <span class="arrow">→</span></a>
+      <a class="btn btn-light" href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a>
     </div>
-
-    <div class="g3" id="plans"></div>
-
-    <div class="logic">
-      <span class="glass">STARTER · Responde</span>
-      <em>→</em>
-      <span class="glass">BUSINESS · Automatiza</span>
-      <em>→</em>
-      <span class="glass">PRO · Analiza + Opera + Escala</span>
-    </div>
-
-    <div class="note-soon glass">
-      <strong>Starter</strong> está disponible ahora.
-      Los planes <strong>Business</strong> y <strong>Pro</strong> estarán pronto en funcionamiento y sus precios finales aún no están publicados.
-      Para Bolivia, Starter se contrata y cobra en bolivianos. Los importes en USD se muestran únicamente para clientes internacionales. La solicitud de activación no reemplaza la verificación, el contrato ni la aprobación del servicio.
-    </div>
-
   </div>
+ </div>
 </section>
-
-<!-- ESCALABILIDAD -->
-
-<section>
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Evolución de la plataforma
-  </div>
-
-  <h2>
-    Diseñada para
-    <span>crecer contigo.</span>
-  </h2>
-
-  <p>
-    CARVAJAL V1.2 está estructurado para ampliar las capacidades
-    de una empresa sin cambiar el núcleo de la plataforma.
-  </p>
-
-</div>
-
-
-<div class="scale">
-
-  <article class="glass scale-card">
-
-    <div class="phase">
-      NIVEL 01
-    </div>
-
-    <h3>Atención</h3>
-
-    <p>
-      Automatiza las conversaciones y permite responder
-      utilizando el conocimiento empresarial.
-    </p>
-
-  </article>
-
-
-  <article class="glass scale-card">
-
-    <div class="phase">
-      NIVEL 02
-    </div>
-
-    <h3>Automatización</h3>
-
-    <p>
-      Conecta atención con procesos, leads, pedidos,
-      citas y seguimiento.
-    </p>
-
-  </article>
-
-
-  <article class="glass scale-card">
-
-    <div class="phase">
-      NIVEL 03
-    </div>
-
-    <h3>Inteligencia + escala</h3>
-
-    <p>
-      Amplía análisis, operaciones, integraciones y
-      capacidades empresariales según las necesidades.
-    </p>
-
-  </article>
-
-</div>
-
-  </div>
-
-</section>
-
-<!-- MULTI TENANT / PLATFORM -->
-
-<section>
-
-  <div class="w">
-
-<div class="head">
-
-  <div class="eb">
-    Plataforma empresarial
-  </div>
-
-  <h2>
-    Una arquitectura preparada
-    <span>para múltiples empresas.</span>
-  </h2>
-
-  <p>
-    Cada empresa necesita su propia información,
-    clientes, conocimiento y operación.
-  </p>
-
-</div>
-
-
-<div class="platform">
-
-  <article class="glass platform-main">
-
-    <h3>
-      Multiempresa · Multi-sucursal · Multi-país
-    </h3>
-
-    <p>
-      La arquitectura CARVAJAL está diseñada para separar
-      los entornos empresariales y permitir que cada cliente
-      opere con su propia información y configuración.
-    </p>
-
-
-    <div class="checks">
-
-      <div class="check">
-        <b>✓</b> Información empresarial independiente
-      </div>
-
-      <div class="check">
-        <b>✓</b> Clientes y conversaciones por empresa
-      </div>
-
-      <div class="check">
-        <b>✓</b> Knowledge empresarial
-      </div>
-
-      <div class="check">
-        <b>✓</b> Configuración por plan
-      </div>
-
-      <div class="check">
-        <b>✓</b> Estructura geográfica
-      </div>
-
-      <div class="check">
-        <b>✓</b> Preparada para expansión
-      </div>
-
-    </div>
-
-  </article>
-
-
-  <aside class="glass platform-side">
-
-    <div class="mini">
-      <b>CORE</b>
-      <span>Coordina la arquitectura.</span>
-    </div>
-
-    <div class="mini">
-      <b>AI ENGINE</b>
-      <span>Interpreta y genera inteligencia.</span>
-    </div>
-
-    <div class="mini">
-      <b>KNOWLEDGE</b>
-      <span>Conserva el contexto empresarial.</span>
-    </div>
-
-    <div class="mini">
-      <b>CRM</b>
-      <span>Organiza clientes y oportunidades.</span>
-    </div>
-
-    <div class="mini">
-      <b>AUTOMATION</b>
-      <span>Convierte eventos en acciones.</span>
-    </div>
-
-  </aside>
-
-</div>
-
-  </div>
-
-</section>
-
-<!-- FINAL CTA -->
-
-<section id="contacto" class="final">
-
-  <div class="w">
-
-<div class="glass final-box">
-
-  <div class="eb">
-    CARVAJAL V1.2
-  </div>
-
-  <h2>
-    Tu empresa ya recibe mensajes.
-    <span>Ahora puede hacer algo con ellos.</span>
-  </h2>
-
-  <p>
-    Empieza con atención automatizada y evoluciona hacia
-    procesos, inteligencia y operaciones más avanzadas.
-  </p>
-
-  <div class="final-actions">
-
-    <a
-      class="btn btn-gold"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20activar%20el%20Plan%20Starter."
-    >
-      Solicitar activación Starter
-    </a>
-
-    <a class="btn btn-dark" href="#planes">
-      Ver planes
-    </a>
-
-  </div>
-
-</div>
-
-  </div>
-
-</section>
-
-</main>
-<main id="legal" class="lg-w" tabindex="-1" hidden>
-<article data-legal-page="privacidad" data-title="Política de privacidad" hidden>
-<a class="back" href="#">← Volver al inicio</a>
-<h1>Política de privacidad</h1>
-<p class="upd">Última actualización: 9 de octubre de 2026</p>
-<h2>Responsable y contacto</h2>
-<p>Carvajal Agencia de Automatizaciones (C.A.A.), con atención virtual desde La Paz, Bolivia. Para consultas o solicitudes sobre privacidad puedes escribir a <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a> o al WhatsApp +591 63047048.</p>
-<h2>Alcance</h2>
-<p>Esta política cubre el sitio público CARVAJAL y, cuando corresponda, la plataforma privada utilizada por clientes para gestionar conversaciones, contactos, leads y funciones incluidas en su plan.</p>
-<h2>Datos que puede tratar el sitio público</h2>
-<p>El sitio público no contiene formularios de registro ni solicita contraseñas. Al visitarlo, los proveedores técnicos necesarios para servir recursos pueden recibir datos técnicos básicos, como dirección IP, tipo de navegador y datos de conexión. El sitio guarda localmente una preferencia técnica de privacidad para no repetir el aviso.</p>
-<h2>Datos de contacto y conversaciones</h2>
-<p>Si nos escribes por WhatsApp u otro canal habilitado, podemos recibir tu número, nombre de perfil, mensajes y la información que decidas proporcionar. Los utilizamos para atender consultas, preparar una propuesta, prestar soporte, gestionar la relación comercial y, si corresponde, iniciar un proceso de activación.</p>
-<h2>Datos de activación del servicio</h2>
-<p>Cuando sean necesarios para verificar y activar un servicio, CARVAJAL puede solicitar datos de identificación y contacto del titular, incluyendo imagen del anverso y reverso del documento de identidad, número de celular, correo electrónico y un croquis del negocio o domicilio. Estos datos deben enviarse únicamente mediante el canal de activación indicado por CARVAJAL. Nunca solicitamos contraseñas de banca, claves de recuperación ni códigos de autenticación.</p>
-<h2>Datos tratados dentro de la plataforma</h2>
-<p>Según el servicio contratado, la plataforma puede tratar datos de usuarios autorizados, clientes finales y contactos del negocio, como nombres, teléfonos, correo cuando exista, historial de conversaciones, estado de atención, leads, notas comerciales, eventos de seguridad y registros técnicos necesarios para operar y proteger el servicio.</p>
-<h2>Finalidades</h2>
-<ul><li>Atender solicitudes y prestar el servicio contratado.</li><li>Gestionar clientes, conversaciones, leads y soporte.</li><li>Verificar activaciones, prevenir fraude y proteger la seguridad de la plataforma.</li><li>Generar respuestas automatizadas conforme a la información empresarial autorizada.</li><li>Cumplir obligaciones legales, contractuales y atender solicitudes de los titulares.</li></ul>
-<h2>Proveedores y transferencias</h2>
-<p>Para prestar el servicio podemos utilizar proveedores de alojamiento e infraestructura en la nube, autenticación, mensajería, almacenamiento, bases de datos y servicios de inteligencia artificial. Algunos pueden procesar información fuera de Bolivia. Limitamos el acceso a lo necesario para prestar el servicio y aplicamos medidas técnicas y organizativas de seguridad. No vendemos datos personales ni los utilizamos para perfiles publicitarios propios.</p>
-<h2>Inteligencia artificial</h2>
-<p>Algunas solicitudes pueden ser procesadas mediante modelos de inteligencia artificial para generar respuestas o clasificaciones. CARVAJAL diseña el servicio para usar el contexto empresarial autorizado y mantener separación entre clientes. Las respuestas automáticas pueden contener errores y deben ser supervisadas cuando la decisión pueda afectar derechos, salud, finanzas u otros asuntos sensibles.</p>
-<h2>Conservación</h2>
-<p>Conservamos la información durante el tiempo necesario para prestar el servicio, mantener seguridad y trazabilidad, atender obligaciones contractuales o legales y resolver reclamos. Cuando deje de ser necesaria, se elimina o anonimiza conforme a los procedimientos aplicables y las obligaciones que debamos conservar.</p>
-<h2>Derechos y solicitudes</h2>
-<p>Puedes solicitar conocer, corregir o eliminar datos que te conciernan y formular objeciones o reclamos cuando corresponda. La Constitución Política del Estado reconoce la Acción de Protección de Privacidad. Para tramitar una solicitud podremos pedir información razonable que permita verificar la identidad del solicitante antes de modificar o entregar datos.</p>
-<h2>Seguridad</h2>
-<p>Aplicamos controles de acceso, separación lógica entre clientes, autenticación, registro de eventos y otras medidas técnicas y organizativas razonables. Ningún sistema puede garantizar riesgo cero; si detectamos un incidente relevante, actuaremos conforme a las obligaciones aplicables y al contrato.</p>
-<h2>Menores</h2>
-<p>Los servicios empresariales de CARVAJAL no están dirigidos a menores para su contratación. Los clientes que utilicen la plataforma en sectores que puedan involucrar datos de menores deben contar con la autorización y base jurídica que corresponda a su actividad.</p>
-<h2>Cambios</h2>
-<p>Podemos actualizar esta política para reflejar cambios del servicio o del marco normativo. Publicaremos la versión vigente y su fecha de actualización.</p>
-</article>
-<article data-legal-page="terminos" data-title="Términos y condiciones" hidden>
-<a class="back" href="#">← Volver al inicio</a>
-<h1>Términos y condiciones del sitio</h1>
-<p class="upd">Última actualización: 9 de octubre de 2026</p>
-<h2>Información general</h2>
-<p>Carvajal Agencia de Automatizaciones (C.A.A.), con atención virtual desde La Paz, Bolivia, ofrece servicios de automatización empresarial con mensajería, inteligencia artificial y herramientas de gestión. Contacto comercial: <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a> y WhatsApp +591 63047048.</p>
-<h2>Uso del sitio</h2>
-<p>Este sitio es informativo y comercial. Utilizarlo no crea por sí solo una relación contractual ni activa un servicio. El plan Starter se encuentra disponible; Business y Pro se muestran únicamente como líneas de evolución cuando están marcados como “Próximamente”.</p>
-<h2>Precios y contratación</h2>
-<p>Para clientes en Bolivia, los importes aplicables se informan y cobran en bolivianos (Bs). Para clientes internacionales pueden ofrecerse importes en dólares estadounidenses y, cuando corresponda, alternativas internacionales expresamente acordadas. La solicitud enviada desde el sitio o por WhatsApp no constituye activación automática. La contratación se perfecciona conforme al proceso de verificación, aceptación del contrato, condiciones de pago y aprobación de activación comunicadas al cliente.</p>
-<h2>Demo y promociones</h2>
-<p>Cuando CARVAJAL anuncie una demostración o promoción, sus condiciones, vigencia, alcance y requisitos serán los expresamente comunicados para esa campaña. Una promoción temporal no modifica por sí sola el precio regular ni las demás obligaciones del contrato.</p>
-<h2>Alcance del servicio</h2>
-<p>Las funciones disponibles dependen del plan y de la configuración contratada. Las descripciones del sitio resumen capacidades generales y no sustituyen el alcance escrito del contrato o propuesta aceptada.</p>
-<h2>Inteligencia artificial</h2>
-<p>Las respuestas automáticas pueden contener errores. El cliente debe revisar la información empresarial que proporciona y mantener supervisión humana cuando corresponda. La plataforma no sustituye asesoría legal, médica o financiera, ni debe configurarse para diagnosticar, prescribir tratamientos o tomar decisiones profesionales reguladas sin la intervención que exija la normativa aplicable.</p>
-<h2>Uso aceptable</h2>
-<p>No se permite utilizar el sitio o la plataforma para actividades ilícitas, fraude, spam, suplantación, vulneración de derechos de terceros, acceso no autorizado, distribución de malware o interferencia con la seguridad y disponibilidad del servicio.</p>
-<h2>Datos y confidencialidad</h2>
-<p>El tratamiento de datos se rige por la Política de privacidad y por las condiciones contractuales aplicables. Cada cliente es responsable de contar con las autorizaciones, avisos y bases necesarias respecto de los datos que incorpore a la plataforma y de no introducir información que no esté autorizado a tratar.</p>
-<h2>Propiedad intelectual</h2>
-<p>La marca, textos, diseño y desarrollos propios de CARVAJAL están protegidos por las normas aplicables. Las librerías y componentes de terceros conservan sus propias licencias y derechos. El uso del servicio no transfiere al cliente la titularidad del software de CARVAJAL.</p>
-<h2>Disponibilidad y responsabilidad</h2>
-<p>CARVAJAL adopta medidas razonables para mantener la seguridad y continuidad del servicio, pero pueden existir mantenimientos, fallas de conectividad o incidencias de proveedores externos. Nada en estos términos excluye derechos irrenunciables de usuarios o consumidores ni responsabilidades que legalmente no puedan limitarse. Las obligaciones, niveles de servicio y responsabilidades específicas se regirán por el contrato aplicable.</p>
-<h2>Reclamos y contacto</h2>
-<p>Las consultas, solicitudes o reclamos pueden enviarse a <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a> o al WhatsApp +591 63047048. Conservaremos un registro razonable de su atención cuando sea necesario.</p>
-<h2>Ley aplicable</h2>
-<p>Se aplican las normas vigentes del Estado Plurinacional de Bolivia cuando correspondan. Cualquier cláusula contractual se interpretará sin restringir derechos que la ley reconozca como irrenunciables ni impedir el acceso a autoridades competentes.</p>
-</article>
-<article data-legal-page="cookies" data-title="Privacidad y almacenamiento local" hidden>
-<a class="back" href="#">← Volver al inicio</a>
-<h1>Privacidad y almacenamiento local</h1>
-<p class="upd">Última actualización: 9 de octubre de 2026</p>
-<h2>Qué utiliza este sitio</h2>
-<p>Actualmente no utilizamos cookies propias de publicidad ni analítica. El sitio puede guardar en tu navegador una preferencia técnica denominada <b>caa-consent-v1</b> para recordar que ya viste el aviso de privacidad.</p>
-<div class="tw"><table><caption class="sr-only">Almacenamiento usado por el sitio</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Tipo</th><th scope="col">Finalidad</th><th scope="col">Duración</th></tr></thead><tbody><tr><td>caa-consent-v1</td><td>Almacenamiento local propio</td><td>Recordar que el aviso de privacidad ya fue mostrado</td><td>Hasta que borres los datos del sitio</td></tr></tbody></table></div>
-<h2>Recursos técnicos de terceros</h2>
-<p>El sitio carga tipografías y librerías técnicas desde proveedores externos. Al solicitar estos recursos, dichos proveedores pueden recibir información técnica como tu dirección IP y navegador. Este acceso no depende del almacenamiento local descrito arriba.</p>
-<h2>Cómo eliminar la preferencia</h2>
-<p>Puedes borrar los datos del sitio desde la configuración de tu navegador. Al hacerlo, el aviso volverá a mostrarse en tu próxima visita.</p>
-<h2>Futuros cambios</h2>
-<p>Si incorporamos herramientas de analítica, publicidad u otras tecnologías opcionales, actualizaremos esta información y aplicaremos el mecanismo de consentimiento que corresponda antes de activarlas cuando sea exigible.</p>
-</article>
 </main>
 
-
-<footer class="ft">
-
-<strong>CARVAJAL AGENCIA DE AUTOMATIZACIONES</strong>
-
-  <br>
-
-Atención · Automatización · Inteligencia · Escala
-
-  <div class="ft-links">
-
-<a
-  target="_blank"
-  rel="noopener noreferrer"
-  href="https://wa.me/59163047048?text=Hola%20Carvajal%2C%20quiero%20información."
->
-  WhatsApp
-</a>
-
-<a
-  href="https://www.instagram.com/caragenciauto"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Instagram
-</a>
-
-<a
-  href="https://www.facebook.com/profile.php?id=61594887920300"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Facebook
-</a>
-
-<a
-  href="https://x.com/Caragenciauto"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  X
-</a>
-
-<a
-  href="https://www.tiktok.com/@carvajal.automati"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  TikTok
-</a>
-
+<footer>
+ <div class="wrap">
+  <div class="footer-grid">
+    <div class="footer-brand"><strong>CARVAJAL</strong><span>AGENCIA DE AUTOMATIZACIONES</span></div>
+    <div class="footer-links">
+      <button data-legal="aviso">Aviso legal</button>
+      <button data-legal="privacidad">Privacidad</button>
+      <button data-legal="cookies">Cookies</button>
+      <button data-legal="terminos">Términos</button>
+      <button data-legal="cuentas">Propiedad de las cuentas</button>
+    </div>
   </div>
-
-  <nav class="ft-links" aria-label="Documentos legales"><a href="#/privacidad" data-legal>Privacidad</a><a href="#/terminos" data-legal>Términos</a><a href="#/cookies" data-legal>Almacenamiento local</a><button type="button" class="cp-link" data-cookie-prefs>Aviso de privacidad</button><a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a></nav>
-
-  <div style="margin-top:18px">
-    © 2026 Carvajal Agencia de Automatizaciones · La Paz, Bolivia
+  <div class="utility-row">
+    <span>▣ Responsive</span>
+    <button id="sitemapBtn" style="border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:0">▤ Sitemap XML</button>
+    <span>▥ Analytics preparado</span>
+    <button data-errors-open style="border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:0">◇ Monitoreo de errores</button>
+    <span>© 2026 CARVAJAL · La Paz, Bolivia</span>
   </div>
-
+ </div>
 </footer>
 
-<script type="module">
-
-import * as THREE from 'three';
-import {
-  OrbitControls
-} from 'three/addons/controls/OrbitControls.js';
-
-import {
-  CSS2DRenderer,
-  CSS2DObject
-} from 'three/addons/renderers/CSS2DRenderer.js';
-
-import gsap from 'gsap';
-
-
-const $ = s => document.querySelector(s);
-const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-
-
-/* ============================================================
-   STARFIELD
-============================================================ */
-
-(function(){
-
-  const c = document.getElementById('stars');
-  const ctx = c.getContext('2d');
-
-  let w,h,stars=[];
-
-  const COUNT = 220;
-
-  function resize(){
-
-    w = c.width = innerWidth;
-    h = c.height = innerHeight;
-
-    stars = Array.from(
-      {length:COUNT},
-      () => ({
-        x:Math.random()*w,
-        y:Math.random()*h,
-        z:Math.random()*0.6+0.2,
-        r:Math.random()*1.4+0.3,
-        s:Math.random()*0.35+0.05
-      })
-    );
-
-  }
-
-  resize();
-
-  addEventListener('resize',resize);
-
-  (function draw(){
-
-    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)requestAnimationFrame(draw);
-
-    ctx.fillStyle='rgba(13,11,8,0.35)';
-    ctx.fillRect(0,0,w,h);
-
-    for(const s of stars){
-
-      s.y += s.s*s.z;
-
-      if(s.y>h){
-
-        s.y=0;
-        s.x=Math.random()*w;
-
-      }
-
-      const alpha=.35+s.z*.55;
-
-      ctx.beginPath();
-
-      ctx.arc(
-        s.x,
-        s.y,
-        s.r*s.z,
-        0,
-        Math.PI*2
-      );
-
-      ctx.fillStyle=
-        'rgba(245,240,230,'+alpha+')';
-
-      ctx.fill();
-
-      if(
-        s.z>.7 &&
-        Math.random()>.97
-      ){
-
-        ctx.beginPath();
-
-        ctx.arc(
-          s.x,
-          s.y,
-          s.r*s.z*2.2,
-          0,
-          Math.PI*2
-        );
-
-        ctx.fillStyle=
-          'rgba(208,164,92,'+(alpha*.5)+')';
-
-        ctx.fill();
-
-      }
-
-    }
-
-  })();
-
-})();
-
-
-/* ============================================================
-   CORE NODES
-============================================================ */
-
-const N = [
-
-  [
-    'CLIENTE',
-    'Identidad, conversaciones e historial de cada cliente.'
-  ],
-
-  [
-    'WHATSAPP',
-    'Canal de comunicación donde comienza la interacción.'
-  ],
-
-  [
-    'AI ENGINE',
-    'Motor de inteligencia que interpreta solicitudes y genera respuestas.'
-  ],
-
-  [
-    'KNOWLEDGE',
-    'Conocimiento empresarial utilizado para responder con contexto.'
-  ],
-
-  [
-    'CRM',
-    'Clientes, leads, conversaciones y oportunidades.'
-  ],
-
-  [
-    'VENTAS',
-    'Procesos comerciales, leads y pedidos según el plan.'
-  ],
-
-  [
-    'AGENDA',
-    'Citas, confirmaciones y seguimiento.'
-  ],
-
-  [
-    'AUTOMATION',
-    'Procesos que convierten eventos en acciones.'
-  ],
-
-  [
-    'OPERATIONS',
-    'Capacidades operativas y empresariales avanzadas.'
-  ]
-
-];
-
-
-const stage = $('#stage');
-
-const GOLD = 0xd0a45c;
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-if(matchMedia('(max-width:800px)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches){
-
-  stage.classList.add('mob');
-
-  stage.innerHTML =
-
-    '<ul class="ml">'+
-
-    '<li class="glass" style="text-align:center">'+
-
-      '<b style="font-size:28px;color:var(--gold)">CARVAJAL</b>'+
-
-      '<p style="font-weight:700;color:var(--ink)">CORE V1.2</p>'+
-
-      '<p>Una arquitectura para conectar atención, inteligencia y operación.</p>'+
-
-    '</li>'+
-
-    N.map(n =>
-
-      '<li class="glass">'+
-
-        '<b>'+n[0]+'</b>'+
-
-        '<p>'+n[1]+'</p>'+
-
-      '</li>'
-
-    ).join('')+
-
-    '</ul>';
-
-}
-
-
-/* ============================================================
-   DESKTOP 3D
-============================================================ */
-
-else{
-
-  const r =
-    new THREE.WebGLRenderer({
-      antialias:true,
-      alpha:true
-    });
-
-  const lr =
-    new CSS2DRenderer();
-
-  r.setPixelRatio(
-    Math.min(devicePixelRatio,2)
-  );
-
-  lr.domElement.className='lbl';
-
-  stage.append(
-    r.domElement,
-    lr.domElement
-  );
-
-
-  const sc =
-    new THREE.Scene();
-
-
-  const cam =
-    new THREE.PerspectiveCamera(
-      50,
-      1,
-      .1,
-      100
-    );
-
-  cam.position.set(
-    0,
-    1.5,
-    11.5
-  );
-
-
-  const ctl =
-    new OrbitControls(
-      cam,
-      lr.domElement
-    );
-
-  Object.assign(
-    ctl,
-    {
-      enableDamping:true,
-      autoRotate:true,
-      autoRotateSpeed:.7,
-      enablePan:false,
-      minDistance:7,
-      maxDistance:16
-    }
-  );
-
-
-  /* CORE */
-
-  const core =
-    new THREE.Group();
-
-  sc.add(core);
-
-
-  core.add(
-
-    new THREE.Mesh(
-
-      new THREE.IcosahedronGeometry(
-        1.5,
-        1
-      ),
-
-      new THREE.MeshBasicMaterial({
-
-        color:GOLD,
-        wireframe:true,
-        transparent:true,
-        opacity:.35
-
-      })
-
-    )
-
-  );
-
-
-  const ring =
-    new THREE.Mesh(
-
-      new THREE.TorusGeometry(
-        2.2,
-        .012,
-        8,
-        100
-      ),
-
-      new THREE.MeshBasicMaterial({
-
-        color:GOLD,
-        transparent:true,
-        opacity:.55
-
-      })
-
-    );
-
-  ring.rotation.x=1.2;
-
-  core.add(ring);
-
-
-  /* HUB */
-
-  const hubEl =
-    document.createElement('div');
-
-  hubEl.innerHTML =
-
-    '<div class="hub glass" role="button" tabindex="0" aria-expanded="false">'+
-
-      '<b>CARVAJAL</b>'+
-
-      '<small>CORE V1.2 · AI AUTOMATION PLATFORM</small>'+
-
-      '<i>Click para activar</i>'+
-
-    '</div>';
-
-
-  core.add(
-    new CSS2DObject(hubEl)
-  );
-
-
-  /* PARTICLES */
-
-  const pa =
-    new Float32Array(420).map(
-      () => (Math.random()-.5)*20
-    );
-
-  const pg =
-    new THREE.BufferGeometry();
-
-  pg.setAttribute(
-    'position',
-    new THREE.BufferAttribute(
-      pa,
-      3
-    )
-  );
-
-
-  const pts =
-    new THREE.Points(
-
-      pg,
-
-      new THREE.PointsMaterial({
-
-        color:GOLD,
-        size:.07,
-        transparent:true,
-        opacity:.5,
-        blending:THREE.AdditiveBlending,
-        depthWrite:false
-
-      })
-
-    );
-
-  sc.add(pts);
-
-
-  /* NODES */
-
-  const nodes =
-    N.map(function(n,i){
-
-      const k=i+.5;
-
-      const y=
-        1-(2*k/N.length);
-
-      const rad=
-        Math.sqrt(1-y*y);
-
-      const a=
-        i*2.39996;
-
-      const p=
-        new THREE.Vector3(
-          Math.cos(a)*rad*4.8,
-          y*3,
-          Math.sin(a)*rad*4.8
-        );
-
-
-      const g =
-        new THREE.Group();
-
-      sc.add(g);
-
-
-      g.add(
-
-        new THREE.Mesh(
-
-          new THREE.SphereGeometry(
-            .11,
-            16,
-            16
-          ),
-
-          new THREE.MeshBasicMaterial({
-            color:GOLD
-          })
-
-        )
-
-      );
-
-
-      const el =
-        document.createElement('div');
-
-      el.className='n';
-      el.setAttribute('aria-hidden','true');
-
-      el.innerHTML =
-
-        '<div class="c glass">'+
-
-          n[0]+
-
-          '<div class="tip">'+
-            n[1]+
-          '</div>'+
-
-        '</div>';
-
-
-      const o =
-        new CSS2DObject(el);
-
-      o.position.y=.3;
-
-      g.add(o);
-
-
-      const ln =
-        new THREE.Line(
-
-          new THREE.BufferGeometry()
-            .setFromPoints([
-              new THREE.Vector3(),
-              new THREE.Vector3()
-            ]),
-
-          new THREE.LineBasicMaterial({
-
-            color:GOLD,
-            transparent:true,
-            opacity:0
-
-          })
-
-        );
-
-
-      ln.frustumCulled=false;
-
-      sc.add(ln);
-
-
-      return {
-        g:g,
-        p:p,
-        c:el.firstChild,
-        ln:ln
-      };
-
-    });
-
-
-  /* HUB INTERACTION */
-
-  hubEl.firstChild.addEventListener(
-    'pointerdown',
-    e => e.stopPropagation()
-  );
-
-
-  let open=false;
-
-
-  hubEl.firstChild.addEventListener(
-    'click',
-    function(){
-
-      open=!open;
-
-      stage.classList.toggle(
-        'open',
-        open
-      );
-
-
-      hubEl.querySelector('i')
-        .textContent =
-        open
-        ? 'Click para colapsar'
-        : 'Click para activar';
-
-
-      nodes.forEach(function(n,i){
-
-        const d=i*.055;
-
-
-        gsap.to(
-          n.g.position,
-          {
-            x:open?n.p.x:0,
-            y:open?n.p.y:0,
-            z:open?n.p.z:0,
-
-            duration:open?1.2:.7,
-
-            delay:d,
-
-            ease:
-              open
-              ? 'back.out(1.5)'
-              : 'power3.in'
-          }
-        );
-
-
-        gsap.to(
-          n.c,
-          {
-            opacity:open?1:0,
-            scale:open?1:.2,
-
-            duration:.6,
-
-            delay:
-              open
-              ? d+.3
-              : 0
-          }
-        );
-
-
-        gsap.to(
-          n.ln.material,
-          {
-            opacity:open?.8:0,
-
-            duration:.6,
-
-            delay:
-              open
-              ? d+.2
-              : 0
-          }
-        );
-
-      });
-
-    }
-  );
-
-
-  const hubB=hubEl.firstChild;
-  hubB.addEventListener('click',()=>hubB.setAttribute('aria-expanded',String(open)));
-  hubB.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hubB.click()}});
-  stage.setAttribute('role','group');
-  stage.setAttribute('aria-label','Arquitectura CARVAJAL: diagrama interactivo');
-  const srl=document.createElement('ul');srl.className='sr-only';
-  srl.innerHTML=N.map(n=>'<li>'+esc(n[0])+': '+esc(n[1])+'</li>').join('');
-  stage.after(srl);
-
-  /* RESIZE */
-
-  function fit(){
-
-    const w=
-      stage.clientWidth;
-
-    const h=
-      stage.clientHeight;
-
-    r.setSize(w,h);
-
-    lr.setSize(w,h);
-
-    cam.aspect=w/h;
-
-    cam.updateProjectionMatrix();
-
-  }
-
-  new ResizeObserver(fit)
-    .observe(stage);
-
-  fit();
-
-
-  /* VISIBILITY */
-
-  let vis=true;
-
-  new IntersectionObserver(
-    e => {
-      vis=e[0].isIntersecting
-    }
-  ).observe(stage);
-
-
-  /* LOOP */
-
-  (function loop(){
-
-    requestAnimationFrame(loop);
-
-    if(!vis)return;
-
-
-    core.rotation.y+=.004;
-
-    pts.rotation.y+=.0008;
-
-
-    nodes.forEach(function(n){
-
-      const a=
-        n.ln.geometry.attributes.position;
-
-      a.setXYZ(
-        1,
-        n.g.position.x,
-        n.g.position.y,
-        n.g.position.z
-      );
-
-      a.needsUpdate=true;
-
-    });
-
-
-    ctl.update();
-
-    r.render(
-      sc,
-      cam
-    );
-
-    lr.render(
-      sc,
-      cam
-    );
-
-  })();
-
-}
-
-
-/* ============================================================
-   PLANS
-============================================================ */
-
-const P = [
-  {
-    n:'Starter',s:'Atención automatizada',t:'Responde',available:true,
-    l:'Ideal para pequeños negocios que necesitan responder y atender automáticamente.',
-    i:'Bs 2.500 (Bolivia) · USD 250 (internacional)',m:'Bs 750 (Bolivia) · USD 75 (internacional)',
-    f:['WhatsApp + IA','RAG (conocimiento empresarial)','Atención automática','Historial de conversaciones','Clientes y contactos','CRM y Leads: Básico','Avisos de leads al responsable','Handoff y respuesta humana','Panel Starter','Demo de 7 días sujeta a activación']
-  },
-  {
-    n:'Business',s:'Automatización operativa',t:'Automatiza',available:false,
-    l:'Para empresas que quieren que Carvajal haga trabajo operativo, no solo atención.',
-    i:'Precio por definir',m:'Precio por definir',
-    f:['Todo lo de Starter','Pedidos y Citas','Automatizaciones: Avanzadas','Seguimiento y recuperación de clientes','Dashboard ejecutivo: Operativo','Reportes y métricas de IA: Básicos','Multi-sucursal: Opcional']
-  },
-  {
-    n:'Pro',s:'Inteligencia empresarial',t:'Analiza + Opera + Escala',available:false,
-    l:'Para empresas que necesitan control total, analítica avanzada y operaciones globales.',
-    i:'Precio por definir',m:'Precio por definir',
-    f:['Todo lo de Business','Leads, Pedidos y Citas: Avanzado','Automatizaciones: Empresariales','Logística y tracking de pedidos','Integraciones externas (ERP, tiendas, etc.)','Multi-país / multi-moneda y multi-sucursal','Inteligencia empresarial y métricas de IA avanzadas']
-  }
-];
-
-$('#plans').innerHTML = P.map(function(p){
-  var btn = p.available
-    ? '<a class="hb" target="_blank" rel="noopener noreferrer" href="https://wa.me/59163047048?text='+encodeURIComponent('Hola Carvajal, quiero activar el Plan '+p.n+'.')+'">Activar Plan<span class="sr-only"> (se abre en una pestaña nueva)</span></a>'
-    : '<a class="hb disabled" aria-disabled="true">Próximamente</a>';
-  var overlay = p.available ? '' : '<div class="soon-overlay" aria-hidden="true"><div class="soon-badge">PRÓXIMAMENTE<small>Business y Pro · en preparación</small></div></div>';
-  var tag = p.available ? 'tg-ok' : 'tg-soon';
-  return '<article class="glass plan">'+
-    overlay+
-    '<h3>'+esc(p.n)+'</h3>'+
-    '<div class="sb">'+esc(p.s)+'</div>'+
-    '<div class="lg">'+esc(p.l)+'</div>'+
-    '<span class="tg '+tag+'">'+esc(p.t)+'</span>'+
-    '<div class="px"><small>Instalación</small><b>'+esc(p.i)+'</b><small>Mensualidad</small><b>'+esc(p.m)+'</b></div>'+
-    '<ul>'+p.f.map(function(f){return '<li>'+esc(f)+'</li>'}).join('')+'</ul>'+
-    btn+
-  '</article>';
-}).join('');
-
-/* ============================================================
-   PLAN CARD 3D (tilt con el mouse; solo el plan disponible)
-============================================================ */
-
-document.querySelectorAll('.plan').forEach(function(c){
-  if(c.querySelector('.soon-overlay')||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  c.addEventListener('pointermove',function(e){
-    var b=c.getBoundingClientRect();
-    gsap.to(c,{
-      rotationY:((e.clientX-b.left)/b.width-.5)*12,
-      rotationX:-((e.clientY-b.top)/b.height-.5)*12,
-      transformPerspective:900,duration:.4
-    });
-  });
-  c.addEventListener('pointerleave',function(){
-    gsap.to(c,{rotationX:0,rotationY:0,duration:.6});
-  });
-});
-
-
-/* ============================================================
-   SMOOTH NAVIGATION
-============================================================ */
-
-document
-  .querySelectorAll('a[href^="#"]')
-  .forEach(function(a){
-
-    a.addEventListener(
-      'click',
-      function(e){
-
-        const id=
-          a.getAttribute('href');
-
-        if(id==='#')return;
-
-        const target=
-          document.querySelector(id);
-
-        if(!target)return;
-
-        e.preventDefault();
-
-        target.scrollIntoView({
-          behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',
-          block:'start'
-        });
-
-      }
-    );
-
-  });
-
-</script>
-
+<div class="cookie" id="cookieBanner" role="dialog" aria-label="Preferencias de cookies">
+  <p><strong>Aviso de cookies.</strong> Usamos almacenamiento necesario para recordar tus preferencias. La analítica opcional solo se activa con tu consentimiento y cuando exista una configuración válida.</p>
+  <div class="cookie-actions"><button id="necessaryBtn">Solo necesarias</button><button id="acceptBtn" class="accept">Aceptar analítica</button></div>
+</div>
+
+<div class="modal" id="legalModal" aria-hidden="true">
+ <div class="modal-panel">
+  <button class="modal-close" data-modal-close aria-label="Cerrar">×</button>
+  <div class="legal-inner" id="legalContent"></div>
+ </div>
+</div>
+
+<div class="modal" id="flowModal" aria-hidden="true">
+ <div class="modal-panel">
+  <button class="modal-close" data-modal-close aria-label="Cerrar">×</button>
+  <div class="flow-modal">
+    <div class="eyebrow" style="text-align:center">PRESENTACIÓN INTERACTIVA</div>
+    <h2>El flujo CARVAJAL.</h2>
+    <p>Un núcleo conecta atención, conocimiento, clientes y automatización sin exponer la infraestructura técnica al usuario final.</p>
+    <div class="diagram" aria-label="Diagrama animado del flujo CARVAJAL">
+      <svg class="diagram-lines" viewBox="0 0 1000 510" preserveAspectRatio="none" aria-hidden="true">
+       <line x1="500" y1="255" x2="500" y2="58"/><line x1="500" y1="255" x2="210" y2="132"/><line x1="500" y1="255" x2="790" y2="132"/>
+       <line x1="500" y1="255" x2="110" y2="255"/><line x1="500" y1="255" x2="890" y2="255"/><line x1="500" y1="255" x2="245" y2="430"/><line x1="500" y1="255" x2="755" y2="430"/>
+      </svg>
+      <div class="core"><div><strong>CARVAJAL</strong><br><span>AUTOMATION CORE</span></div></div>
+      <div class="node n1">WHATSAPP CLIENTE</div><div class="node n2">AI ENGINE</div><div class="node n3">KNOWLEDGE</div>
+      <div class="node n4">CRM</div><div class="node n5">OPERATIONS</div><div class="node n6">AUTOMATION</div><div class="node n7">AGENDA</div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<div class="modal" id="errorModal" aria-hidden="true">
+ <div class="modal-panel">
+  <button class="modal-close" data-modal-close aria-label="Cerrar">×</button>
+  <div class="legal-inner" id="error-panel"><h2>Diagnóstico del sitio</h2><p>Registro local de errores del navegador. No muestra claves ni credenciales.</p><pre id="errorLog">Sin errores registrados.</pre><button class="btn btn-light" id="clearErrors">Borrar registro local</button></div>
+ </div>
+</div>
 
 <script>
-(function(){
-var K='caa-consent-v1',D=document,box=null,last=null;
-function get(){try{return JSON.parse(localStorage.getItem(K))}catch(e){return null}}
-function save(opt){var v={optional:opt,date:new Date().toISOString().slice(0,10)};try{localStorage.setItem(K,JSON.stringify(v))}catch(e){}
-  window.CAAConsent.state=v;D.dispatchEvent(new CustomEvent('caa-consent',{detail:v}))}
-function close(){if(box){box.remove();box=null}if(last&&last.focus)last.focus()}
-function open(){
-  if(box)return;last=D.activeElement;box=D.createElement('div');box.id='caa-cb';
-  box.setAttribute('role','dialog');box.setAttribute('aria-labelledby','caa-cb-t');box.setAttribute('aria-describedby','caa-cb-d');
-  box.innerHTML='<h2 id="caa-cb-t">Aviso de privacidad</h2><p id="caa-cb-d">Este sitio no usa cookies de publicidad ni analítica. Carga recursos técnicos externos que pueden recibir tu dirección IP y guarda una preferencia local para no repetir este aviso. <a href="#/cookies" data-legal>Almacenamiento local</a> · <a href="#/privacidad" data-legal>Política de privacidad</a></p><div class="row"><button type="button" class="ok" id="caa-yes">Entendido</button></div>';
-  D.body.appendChild(box);
-  D.getElementById('caa-yes').onclick=function(){save(false);close()};
-  D.getElementById('caa-yes').focus();
-  box.addEventListener('keydown',function(e){if(e.key==='Escape'){save(false);close()}});
-}
-window.CAAConsent={state:get(),open:open,allowed:function(){return !!(window.CAAConsent.state&&window.CAAConsent.state.optional)}};
-D.addEventListener('DOMContentLoaded',function(){
-  if(!window.CAAConsent.state){open();last=null}
-  D.querySelectorAll('[data-cookie-prefs]').forEach(function(b){b.addEventListener('click',open)});
-  D.querySelectorAll('a[target="_blank"]:not([data-ne])').forEach(function(a){
-    if(!a.querySelector('.sr-only')){var s=D.createElement('span');s.className='sr-only';s.textContent=' (se abre en una pestaña nueva)';a.appendChild(s)}a.setAttribute('data-ne','1')});
-});
-})();
+"use strict";
+const CAA = {
+  appLoginUrl: "https://carvajal-app-production.up.railway.app/login",
+  publicBaseUrl: "https://carvajalautomatizaciones.github.io/-CARVAJAL-AGENCIA-DE-AUTOMATIZACIONES/",
+  analytics: { gaMeasurementId: "", errorEndpoint: "" }
+};
+document.querySelectorAll("[data-app-login]").forEach(a=>a.href=CAA.appLoginUrl);
 
+const legal = {
+ aviso: `<h2>Aviso legal</h2><p class="updated">Última actualización: 10 de octubre de 2026</p>
+ <h3>Identificación</h3><p>Este sitio corresponde a CARVAJAL Agencia de Automatizaciones (C.A.A.), con atención virtual desde La Paz, Bolivia. Contacto comercial: <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a>.</p>
+ <h3>Objeto del sitio</h3><p>El sitio informa sobre servicios de automatización empresarial, los planes disponibles y las formas de contacto y acceso a la plataforma privada.</p>
+ <h3>Información comercial</h3><p>Starter es el plan actualmente disponible. Business y Pro se encuentran en desarrollo y sus precios finales no se consideran publicados hasta que CARVAJAL los anuncie expresamente. Los importes mostrados para Starter distinguen Bolivia e internacional.</p>
+ <h3>Limitación de alcance</h3><p>La información del sitio es comercial e informativa. La activación de un servicio está sujeta a verificación, aceptación contractual y condiciones particulares acordadas con cada cliente.</p>
+ <h3>Propiedad intelectual</h3><p>La marca, diseño, contenidos propios, identidad visual, diagramas y materiales de CARVAJAL no pueden reutilizarse comercialmente sin autorización, salvo usos permitidos por la normativa aplicable.</p>`,
+ privacidad: `<h2>Política de privacidad</h2><p class="updated">Última actualización: 10 de octubre de 2026</p>
+ <h3>Responsable y contacto</h3><p>CARVAJAL Agencia de Automatizaciones (C.A.A.), con atención virtual desde La Paz, Bolivia. Consultas sobre privacidad: <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a>.</p>
+ <h3>Datos tratados en el sitio público</h3><p>El sitio puede procesar datos técnicos necesarios para su funcionamiento, preferencias de cookies y, cuando el visitante utiliza los botones de contacto, la información que decida enviar por WhatsApp u otros canales habilitados.</p>
+ <h3>Datos de activación</h3><p>Cuando sean necesarios para verificar y activar un servicio, CARVAJAL puede solicitar datos de identificación y contacto del titular, incluyendo imagen del anverso y reverso del documento de identidad, número de celular, correo electrónico y croquis del negocio o domicilio. Nunca solicitamos contraseñas bancarias, claves de recuperación ni códigos de autenticación.</p>
+ <h3>Datos dentro de la plataforma</h3><p>Según el servicio contratado, la plataforma puede tratar usuarios autorizados, clientes finales, contactos, conversaciones, leads, notas comerciales y registros técnicos necesarios para operar y proteger el servicio.</p>
+ <h3>Finalidades</h3><ul><li>Atender solicitudes y prestar el servicio contratado.</li><li>Gestionar clientes, conversaciones, leads y soporte.</li><li>Verificar activaciones y proteger la seguridad de la plataforma.</li><li>Generar respuestas automatizadas conforme a información empresarial autorizada.</li><li>Cumplir obligaciones legales y contractuales aplicables.</li></ul>
+ <h3>Proveedores y transferencias</h3><p>CARVAJAL puede utilizar proveedores de alojamiento, autenticación, mensajería, bases de datos e inteligencia artificial. Algunos proveedores pueden procesar información fuera de Bolivia. El acceso se limita a lo necesario para prestar el servicio. No vendemos datos personales a anunciantes.</p>
+ <h3>Conservación y seguridad</h3><p>La información se conserva durante el tiempo necesario para prestar el servicio, cumplir obligaciones y gestionar incidencias. Aplicamos controles de acceso, separación por cliente y otras medidas técnicas y organizativas razonables.</p>
+ <h3>Solicitudes</h3><p>Las consultas relacionadas con acceso, corrección o eliminación de datos pueden dirigirse al correo de contacto y pueden requerir verificación de identidad.</p>`,
+ cookies: `<h2>Política de cookies</h2><p class="updated">Última actualización: 10 de octubre de 2026</p>
+ <h3>Qué utiliza este sitio</h3><p>El sitio usa almacenamiento local para recordar la preferencia de privacidad del visitante. Las herramientas opcionales de analítica y lectura de errores solo deben activarse cuando exista una configuración válida y, cuando corresponda, consentimiento.</p>
+ <h3>Categorías</h3><ul><li><strong>Necesarias:</strong> preferencias técnicas y funcionamiento básico.</li><li><strong>Analítica:</strong> medición agregada de páginas y acciones, cuando se configure una herramienta de analítica.</li><li><strong>Errores:</strong> registro técnico de fallas del navegador y, opcionalmente, envío a un servicio de monitoreo configurado.</li></ul>
+ <h3>Gestión</h3><p>El aviso permite aceptar únicamente las necesarias o habilitar la medición opcional. La preferencia puede borrarse desde el almacenamiento del navegador para volver a mostrar el aviso.</p>`,
+ terminos: `<h2>Términos de uso</h2><p class="updated">Última actualización: 10 de octubre de 2026</p>
+ <h3>Uso del sitio</h3><p>El visitante puede consultar información comercial, comparar planes, contactar a CARVAJAL y acceder a la plataforma privada cuando cuente con autorización.</p>
+ <h3>Cuenta de cliente</h3><p>El acceso a la App es personal para los usuarios autorizados por cada negocio. El titular es responsable de mantener seguras sus credenciales y comunicar accesos no autorizados.</p>
+ <h3>Disponibilidad</h3><p>CARVAJAL trabaja para mantener la plataforma disponible, pero no garantiza disponibilidad ininterrumpida frente a mantenimientos, fallas de proveedores externos, internet o eventos fuera de control razonable.</p>
+ <h3>Inteligencia artificial</h3><p>Las respuestas automáticas dependen de la información empresarial autorizada, el contexto disponible y los proveedores de IA configurados. El cliente debe mantener actualizada la información de su negocio y revisar los procesos que requieran validación humana.</p>
+ <h3>Planes</h3><p>Las funciones efectivamente disponibles dependen del plan contratado. Starter está disponible actualmente. Business y Pro se encuentran en desarrollo.</p>
+ <h3>Relación contractual</h3><p>Estos términos del sitio no sustituyen el contrato de prestación de servicios firmado con cada cliente. En caso de diferencia, prevalecerán las condiciones contractuales acordadas.</p>`,
+ cuentas: `<h2>Propiedad de las cuentas</h2><p class="updated">Última actualización: 10 de octubre de 2026</p>
+ <h3>Principio general</h3><p>Las cuentas empresariales y activos de terceros utilizados para prestar el servicio deben permanecer bajo control del titular legítimo del negocio siempre que la plataforma del proveedor lo permita.</p>
+ <h3>WhatsApp y Meta</h3><p>El cliente debe utilizar cuentas, números y activos de Meta/WhatsApp sobre los que tenga autorización. CARVAJAL puede recibir acceso técnico limitado para configurar y operar las automatizaciones contratadas, sin que ello transfiera la propiedad del activo empresarial.</p>
+ <h3>Credenciales</h3><p>Las claves, tokens y credenciales técnicas deben mantenerse en gestores o sistemas de credenciales adecuados y no deben publicarse en el sitio web ni compartirse mediante documentos públicos.</p>
+ <h3>Finalización del servicio</h3><p>Al terminar la relación contractual, los accesos concedidos a CARVAJAL deben revisarse y revocarse según corresponda. La entrega, migración o eliminación de datos y configuraciones se regirá por el contrato aplicable y las capacidades de cada proveedor externo.</p>
+ <h3>Responsabilidad del cliente</h3><p>El cliente es responsable de que los usuarios autorizados tengan permisos legítimos y de comunicar oportunamente bajas de personal o accesos comprometidos.</p>`
+};
+
+
+const heroHologram=document.getElementById("heroHologram");
+const holoCore=document.getElementById("holoCore");
+const holoToggle=document.getElementById("holoToggle");
+function setHologram(open){
+  if(!heroHologram)return;
+  heroHologram.classList.toggle("expanded",open);
+  [holoCore,holoToggle].forEach(el=>el&&el.setAttribute("aria-expanded",String(open)));
+  if(holoToggle){
+    holoToggle.firstChild.textContent=open?"Ocultar flujo ":"Ver flujo ";
+  }
+}
+[holoCore,holoToggle].forEach(el=>el&&el.addEventListener("click",()=>setHologram(!heroHologram.classList.contains("expanded"))));
+
+const legalModal=document.getElementById("legalModal"), legalContent=document.getElementById("legalContent");
+document.querySelectorAll("[data-legal]").forEach(b=>b.addEventListener("click",()=>{legalContent.innerHTML=legal[b.dataset.legal]||"";openModal(legalModal);}));
+document.querySelectorAll("[data-flow-open]").forEach(b=>b.addEventListener("click",()=>openModal(document.getElementById("flowModal"))));
+document.querySelectorAll("[data-errors-open]").forEach(b=>b.addEventListener("click",()=>{refreshErrors();openModal(document.getElementById("errorModal"));}));
+document.querySelectorAll("[data-modal-close]").forEach(b=>b.addEventListener("click",()=>closeModal(b.closest(".modal"))));
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)closeModal(m);}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".modal.open").forEach(closeModal)});
+
+function openModal(m){m.classList.add("open");m.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
+function closeModal(m){if(!m)return;m.classList.remove("open");m.setAttribute("aria-hidden","true");if(!document.querySelector(".modal.open"))document.body.style.overflow="";}
+
+const menuBtn=document.getElementById("menuBtn");
+menuBtn.addEventListener("click",()=>{
+  const items=[["Soluciones","#soluciones"],["Cómo funciona","#funciona"],["Planes","#planes"],["Contacto","#contacto"],["Ingresar",CAA.appLoginUrl]];
+  legalContent.innerHTML='<h2>Menú</h2>'+items.map(([t,h])=>`<p><a href="${h}" style="font-size:20px;font-weight:800;text-decoration:none">${t}</a></p>`).join('');
+  openModal(legalModal);
+  legalContent.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeModal(legalModal)));
+});
+
+const COOKIE_KEY="caa_cookie_pref_v2";
+const cookieBanner=document.getElementById("cookieBanner");
+let pref=null; try{pref=JSON.parse(localStorage.getItem(COOKIE_KEY)||"null")}catch{}
+if(!pref) setTimeout(()=>cookieBanner.classList.add("show"),550);
+document.getElementById("necessaryBtn").addEventListener("click",()=>saveConsent(false));
+document.getElementById("acceptBtn").addEventListener("click",()=>saveConsent(true));
+function saveConsent(analytics){
+ const v={necessary:true,analytics,ts:new Date().toISOString()};
+ try{localStorage.setItem(COOKIE_KEY,JSON.stringify(v))}catch{}
+ cookieBanner.classList.remove("show");
+ if(analytics) loadAnalytics();
+}
+function loadAnalytics(){
+ const id=CAA.analytics.gaMeasurementId;
+ if(!id || !/^G-[A-Z0-9]+$/i.test(id)) return;
+ if(document.querySelector('script[data-caa-ga]')) return;
+ const s=document.createElement("script");s.async=true;s.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;s.dataset.caaGa="1";document.head.appendChild(s);
+ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",id,{anonymize_ip:true});
+}
+if(pref?.analytics) loadAnalytics();
+
+const ERR_KEY="caa_site_errors_v2";
+function recordError(kind,message,extra={}){
+ let arr=[];try{arr=JSON.parse(localStorage.getItem(ERR_KEY)||"[]")}catch{}
+ arr.push({time:new Date().toISOString(),kind,message:String(message).slice(0,1000),path:location.pathname+location.hash,...extra});
+ arr=arr.slice(-30);try{localStorage.setItem(ERR_KEY,JSON.stringify(arr))}catch{}
+ const ep=CAA.analytics.errorEndpoint;
+ if(ep && /^https:\/\//i.test(ep)) fetch(ep,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(arr[arr.length-1]),keepalive:true}).catch(()=>{});
+}
+window.addEventListener("error",e=>recordError("error",e.message,{file:e.filename||"",line:e.lineno||0}));
+window.addEventListener("unhandledrejection",e=>recordError("unhandledrejection",e.reason?.message||e.reason||"Unhandled rejection"));
+function refreshErrors(){
+ let arr=[];try{arr=JSON.parse(localStorage.getItem(ERR_KEY)||"[]")}catch{}
+ document.getElementById("errorLog").textContent=arr.length?JSON.stringify(arr,null,2):"Sin errores registrados.";
+}
+document.getElementById("clearErrors").addEventListener("click",()=>{localStorage.removeItem(ERR_KEY);refreshErrors();});
+
+document.querySelectorAll("a,button").forEach(el=>el.addEventListener("click",()=>{
+ if(!pref?.analytics)return;
+ try{
+   const events=JSON.parse(localStorage.getItem("caa_local_analytics_v2")||"[]");
+   events.push({time:new Date().toISOString(),label:(el.textContent||"").trim().slice(0,80),path:location.pathname+location.hash});
+   localStorage.setItem("caa_local_analytics_v2",JSON.stringify(events.slice(-100)));
+ }catch{}
+}));
+
+document.getElementById("sitemapBtn").addEventListener("click",()=>{
+ const u=CAA.publicBaseUrl.replace(/\/$/,"/");
+ const xml=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${u}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n</urlset>`;
+ const blob=new Blob([xml],{type:"application/xml"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="sitemap.xml";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+});
 </script>
-<script>
-(function(){
-var L=document.getElementById('legal'),M=document.getElementById('main'),T=document.title,P=L.querySelectorAll('[data-legal-page]');
-var RM=function(){return matchMedia('(prefers-reduced-motion: reduce)').matches};
-function route(){var r=(location.hash.match(/^#\/(\w+)/)||[])[1],on=false;
- P.forEach(function(p){var m=p.getAttribute('data-legal-page')===r;p.hidden=!m;if(m){on=true;document.title=p.getAttribute('data-title')+' | CARVAJAL'}});
- L.hidden=!on;M.hidden=on;
- if(on){scrollTo(0,0);L.focus({preventScroll:true})}else document.title=T}
-function home(){history.pushState(null,'',location.pathname+location.search);route()}
-document.addEventListener('click',function(e){
- var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href');
- if(h.indexOf('#/')===0){e.preventDefault();e.stopPropagation();location.hash=h;return}
- if(L.hidden)return;
- e.preventDefault();e.stopPropagation();home();
- if(h.length>1){var t=document.querySelector(h);if(t)requestAnimationFrame(function(){t.scrollIntoView({behavior:RM()?'auto':'smooth',block:'start'})})}else scrollTo(0,0)
-},true);
-addEventListener('hashchange',route);route();
-})();
-</script>
+
+<!--
+CONFIGURACIÓN ANTES DE PRODUCCIÓN
+1) Cambiar CAA.appLoginUrl por la URL real de la App si difiere de https://carvajal-app-production.up.railway.app/login
+2) Si se usa Google Analytics, colocar el Measurement ID en CAA.analytics.gaMeasurementId.
+3) Si se usa un servicio propio de errores, colocar un endpoint HTTPS en CAA.analytics.errorEndpoint.
+4) Este archivo NO contiene API keys, tokens, contraseñas ni credenciales.
+5) Por exigencia de "un solo index.html", el sitemap se genera para descarga. Para SEO real, publicar además /sitemap.xml como archivo independiente en GitHub Pages.
+-->
 </body>
 </html>
