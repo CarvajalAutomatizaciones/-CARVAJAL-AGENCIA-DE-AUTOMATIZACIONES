@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/glm-5.3-flash-free",
+  "agent": {
+    "mi-amigo-web": {
+      "description": "Construye exclusivamente la web p\u00fablica de mI Amigo",
+      "mode": "primary",
+      "model": "opencode/glm-5.3-flash-free",
+      "prompt": "Construye solo esta web. No delegues ni crees subagentes. No accedas a credenciales, otros directorios o infraestructura. No publiques. No a\u00f1adas paquetes, rastreadores ni recursos externos. Lee BRIEF.md y escribe \u00fanicamente dentro de dist/.",
+      "permission": {
+        "edit": "allow",
+        "bash": "deny",
+        "webfetch": "deny",
+        "task": "deny",
+        "external_directory": "deny"
+      }
+    }
+  }
+}
