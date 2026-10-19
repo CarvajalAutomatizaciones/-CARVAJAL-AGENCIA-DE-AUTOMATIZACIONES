@@ -11,6 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
+<script src="hero-3d.js" defer></script>
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -39,14 +40,14 @@
       <div class="sin-enlaces">
         <a class="btn btn-claro" href="#asistentes">Explorar asistentes</a>
         <a class="btn btn-linea" href="#suscripcion">Conocer la propuesta</a>
-      </div><p class="hero-status">En preparación · Conoce hoy lo que estamos construyendo.</p></div><div class="hero-art"><img src="companion.svg" width="500" height="500" alt="Ilustración original de un compañero sonriente rodeado de símbolos de cocina, inglés y movimiento"><span class="art-note">Un poco de ayuda.<br>Muchas posibilidades.</span></div>
+      </div><p class="hero-status">En preparación · Conoce hoy lo que estamos construyendo.</p></div><div class="hero-art hero-scene"><canvas id="hero-canvas" width="500" height="500" role="img" aria-label="Compañero de IA tridimensional original con satélites de cocina, inglés y movimiento" hidden></canvas><img id="hero-fallback" src="companion.svg" width="500" height="500" alt="Ilustración original de un compañero sonriente rodeado de símbolos de cocina, inglés y movimiento"><span class="art-note">Un poco de ayuda.<br>Muchas posibilidades.</span><button id="hero-motion" type="button" class="motion-toggle" aria-pressed="false" hidden>Pausar animación</button></div>
     </div>
   </section>
   <section class="banda" aria-label="Estado del proyecto">
     <div class="wrap">
       <ul>
         <li>Prelanzamiento</li>
-        <li>Mensualidad por definir</li>
+        <li>Desde US$4,99 / mes</li>
         <li>Tres asistentes</li>
         <li>Mayores de 18</li>
         <li>Servicio previsto por WhatsApp</li>
@@ -63,7 +64,7 @@
         <figure class="carta" id="chef">
           <div class="dibujo" role="img" aria-label="Dibujo original de un plato con tenedor y cuchara"><svg viewBox="0 0 220 130" aria-hidden="true" focusable="false"><circle cx="110" cy="66" r="36" fill="#fffdf6" stroke="#1e4335" stroke-width="3"/><ellipse cx="103" cy="56" rx="14" ry="9" fill="#9ecf4a" stroke="#1e4335" stroke-width="2"/><ellipse cx="120" cy="71" rx="11" ry="7" fill="#e2593d" stroke="#1e4335" stroke-width="2"/><path d="M42 30v20M50 30v20M46 50v36" fill="none" stroke="#1e4335" stroke-width="3"/><ellipse cx="172" cy="42" rx="9" ry="12" fill="#fffdf6" stroke="#1e4335" stroke-width="3"/><path d="M172 54v34" stroke="#1e4335" stroke-width="3"/></svg></div>
           <figcaption>
-            <h3 class="titulo">Chef</h3>
+            <h3 class="titulo">Chef</h3><p class="plan-price"><strong>US$9,99</strong><span> / mes · por asistente</span></p>
 <p>La propuesta: una receta nueva cada día, ideas con tus ingredientes y una guía paso a paso hasta llevar tu plato a la mesa.</p>
 <p class="nota-mutua"><em>Sin</em> dietas clínicas: ante alergias, revisa siempre los envases y cocina con seguridad.</p>
           </figcaption>
@@ -72,7 +73,7 @@
         <figure class="carta" id="ingles">
           <div class="dibujo" role="img" aria-label="Dibujo original de una tarjeta de inglés con las letras EN"><svg viewBox="0 0 220 130" aria-hidden="true" focusable="false"><rect x="58" y="18" width="104" height="80" rx="10" fill="#fffdf6" stroke="#1e4335" stroke-width="3"/><rect x="58" y="18" width="104" height="26" fill="#9ecf4a" stroke="#1e4335" stroke-width="3"/><text x="110" y="82" text-anchor="middle" font-size="26" font-weight="700" fill="#1e4335">EN</text><text x="110" y="37" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4335">Práctica escrita</text></svg></div>
           <figcaption>
-            <h3 class="titulo">Inglés</h3>
+            <h3 class="titulo">Inglés</h3><p class="plan-price"><strong>US$4,99</strong><span> / mes · por asistente</span></p>
             <p>La propuesta: práctica escrita adaptada a tu nivel, vocabulario útil y pequeñas lecciones para darle al inglés un lugar en tu día.</p>
             <p class="nota-mutua">Práctica por escrito, <em>sin</em> prometer audio ni certificaciones.</p>
           </figcaption>
@@ -81,7 +82,7 @@
         <figure class="carta carta-recomendada" id="movimiento">
           <div class="dibujo" role="img" aria-label="Dibujo original de unas pesas"><svg viewBox="0 0 220 130" aria-hidden="true" focusable="false"><line x1="70" y1="62" x2="150" y2="62" stroke="#1e4335" stroke-width="6"/><rect x="54" y="38" width="16" height="48" rx="6" fill="#e2593d" stroke="#1e4335" stroke-width="3"/><rect x="34" y="48" width="14" height="28" rx="5" fill="#cde59a" stroke="#1e4335" stroke-width="3"/><rect x="150" y="38" width="16" height="48" rx="6" fill="#e2593d" stroke="#1e4335" stroke-width="3"/><rect x="172" y="48" width="14" height="28" rx="5" fill="#cde59a" stroke="#1e4335" stroke-width="3"/><text x="110" y="112" text-anchor="middle" font-size="12" fill="#526f60">Progreso paso a paso</text></svg></div>
           <figcaption>
-            <h3 class="titulo">Gimnasio</h3>
+            <h3 class="titulo">Gimnasio</h3><p class="plan-price"><strong>US$9,99</strong><span> / mes · por asistente</span></p>
             <p>La propuesta: primero conocer tus objetivos, experiencia y equipo; después, planificar tu actividad diaria, incluyendo descanso y progresión.</p>
             <p class="nota-mutua">Esta web no solicita fotos, peso ni datos de salud. El acompañamiento no sustituye una valoración profesional.</p>
           </figcaption>
@@ -120,29 +121,33 @@
   </section>
   <section class="lego" id="suscripcion" aria-labelledby="titulo-suscripcion">
     <div class="wrap">
-      <div class="lego-cabeza"><h2 class="lego-titulo" id="titulo-suscripcion">Suscripción y prelanzamiento</h2><span class="pegatina pegatina-corinta">APERTURA PENDIENTE</span></div>
-      <div class="suscripcion-caja">
-        <div>
-          <h3>Un compañero. Un mes a la vez.</h3>
-          <p>Estamos definiendo los planes mensuales para personas mayores de 18 años. Antes de contratar podrás conocer el precio total, qué incluye cada asistente, cómo se renueva y cómo se cancela. Esta web todavía no acepta pagos.</p>
-        </div>
-        <p class="precio-fuera"><strong>Mensualidad por confirmar.</strong> La contratación se abrirá después de completar la identidad del operador y las condiciones del servicio. <a href="legal/suscripciones.html">Consulta suscripciones, cancelación y reembolsos</a>.</p>
-        <div class="sin-enlaces">
-          <a class="btn" href="#asistentes">Explorar asistentes</a>
-          <a class="btn btn-claro" href="mailto:cagenciauto@gmail.com">Consultar la apertura</a>
-        </div>
-        <p class="panico">Contacto provisional: CARVAJAL · cagenciauto@gmail.com. El botón abre tu aplicación de correo; no contrata un servicio ni te suscribe a publicidad.</p>
+      <div class="lego-cabeza"><h2 class="lego-titulo" id="titulo-suscripcion">Un compañero. Un mes a la vez.</h2><span class="pegatina">PLANES MENSUALES EN USD</span></div>
+      <div class="price-grid">
+        <article class="price-card" data-plan="ingles"><span class="price-kicker">PARA DAR EL SIGUIENTE PASO</span><h3>Inglés</h3><p class="price-amount">US$4,99<span> / mes</span></p><p>Práctica escrita, vocabulario y explicaciones adaptadas a tu nivel declarado.</p><a class="btn btn-linea" href="#pago">Ver cómo se pagará</a></article>
+        <article class="price-card" data-plan="gimnasio"><span class="price-kicker">PARA MOVERTE A TU RITMO</span><h3>Gimnasio</h3><p class="price-amount">US$9,99<span> / mes</span></p><p>Actividad progresiva con espacio para tu experiencia, equipo, objetivos y descanso.</p><a class="btn btn-linea" href="#pago">Ver cómo se pagará</a></article>
+        <article class="price-card" data-plan="chef"><span class="price-kicker">PARA DISFRUTAR LO COTIDIANO</span><h3>Chef</h3><p class="price-amount">US$9,99<span> / mes</span></p><p>Una receta nueva cada día y una guía paso a paso para llevarla a tu mesa.</p><a class="btn btn-linea" href="#pago">Ver cómo se pagará</a></article>
       </div>
+      <p class="pricing-note">Precio mensual por cada asistente, expresado en dólares estadounidenses (USD). Pago previsto en USDT mediante Binance Pay; el importe final aplicable se confirmará antes de enviar, sin asumir una conversión fija. <a href="legal/suscripciones.html">Condiciones, cancelación y reembolsos</a>.</p>
+      <div class="payment-layout" id="pago">
+        <div class="payment-copy"><p class="eyebrow">BINANCE PAY · PAGO MENSUAL MANUAL</p><h3>Tu pago, con un destino claro.</h3>
+          <p class="payment-status"><strong>Activación próxima.</strong> El número +591 62230618 está pendiente de activación. Antes de pagar, confirma que el servicio está disponible, la identidad del operador, el importe total y las condiciones de tu mes. No realices pagos mientras esa confirmación esté pendiente.</p>
+          <ol class="payment-steps"><li>Al confirmar la apertura, revisa el plan: Inglés US$4,99, Gimnasio US$9,99 o Chef US$9,99 al mes.</li><li>Abre Binance Pay y escanea el <strong>QR central grande</strong> del archivo oficial. El QR pequeño es solo para descargar Binance.</li><li>Comprueba en la aplicación el beneficiario <strong>Cripto Agency Auto</strong>, la moneda USDT, el importe final y cualquier comisión aplicable antes de enviar. El QR no fija importe ni moneda. No es una instrucción para transferir por una red blockchain.</li><li>Cuando el número esté activo, envía la referencia del pago al <strong>+591 62230618</strong> para su revisión manual.</li></ol>
+          <div class="sin-enlaces"><a class="btn" href="https://wa.me/59162230618?text=Hola%2C%20quiero%20confirmar%20la%20apertura%20de%20mI%20Amigo%20y%20las%20condiciones%20antes%20de%20pagar." target="_blank" rel="noopener noreferrer">Consultar activación por WhatsApp</a><a class="btn btn-linea" href="https://wa.me/59162230618?text=Hola%2C%20solicito%20revisar%20un%20pago%20de%20mI%20Amigo.%20Asistente%3A%20__.%20Per%C3%ADodo%3A%20__.%20Importe%20y%20moneda%3A%20__.%20ID%20de%20transacci%C3%B3n%3A%20__." target="_blank" rel="noopener noreferrer">Preparar confirmación de pago</a></div>
+          <p class="payment-small">Los enlaces abren un borrador en WhatsApp y no envían mensajes automáticamente. El número aún no está operativo. Alternativa provisional: <a href="mailto:cagenciauto@gmail.com">cagenciauto@gmail.com</a>.</p>
+        </div>
+        <div class="payment-qr"><span class="pegatina">QR OFICIAL PROPORCIONADO</span><h4>Binance Pay</h4><p>Destinatario visible: <strong>Cripto Agency Auto</strong></p><details><summary>Ver el QR original · confirmar apertura antes de pagar</summary><img src="assets/binance-pay-crv-original.png" width="900" height="1500" loading="lazy" alt="Archivo original de Binance Pay para Cripto Agency Auto: utilizar el QR central grande para pago; el pequeño descarga la aplicación"><p><a href="assets/binance-pay-crv-original.png" target="_blank" rel="noopener noreferrer">Abrir imagen original a tamaño completo</a></p><p><a href="assets/binance-pay-crv-original.png" download="binance-pay-crv-original.png">Descargar QR original</a></p></details><p class="payment-small">Reutilizado del QR de CRV STARTER por indicación del titular. La imagen conserva sus marcas de Binance; no representa patrocinio ni aprobación de mI Amigo por Binance.</p></div>
+      </div>
+      <aside class="confirmation-note"><h3>¿Qué incluirá la confirmación?</h3><p>Asistente elegido, período, importe y moneda enviados e ID de transacción. Comparte solo lo necesario; si envías un comprobante, oculta saldos y datos ajenos. Nunca envíes contraseñas, códigos de acceso, frases de recuperación, documentos de identidad ni datos de salud.</p><p><strong>Enviar un comprobante no valida el pago.</strong> La persona receptora debe comprobar la recepción real antes de confirmar el inicio y las fechas del servicio. No hay validación automática ni débitos automáticos en esta web.</p></aside>
     </div>
   </section>
   <section class="lego faq" id="preguntas" aria-labelledby="titulo-preguntas">
     <div class="wrap">
       <div class="lego-cabeza"><h2 class="lego-titulo" id="titulo-preguntas">Lo que conviene saber</h2></div>
       <details><summary>¿Puedo usar los asistentes hoy?<span class="abrir" aria-hidden="true">+</span></summary><p>No. Esta web es publicidad de prelanzamiento; los asistentes no son operativos y no se ofrece uso de pago todavía.</p></details>
-      <details><summary>¿Cuánto costará la mensualidad?<span class="abrir" aria-hidden="true">+</span></summary><p>Está por definir. Publicaremos importe, moneda, impuestos, límites y fecha de cobro con antelación, y no se aceptará ningún pago mientras quede pendiente.</p></details>
-      <details><summary>¿Cómo se usarán los asistentes?<span class="abrir" aria-hidden="true">+</span></summary><p>El canal previsto es WhatsApp. El número y el acceso se publicarán al confirmar la apertura; esta web no incluye una conversación con IA.</p></details>
+      <details><summary>¿Cuánto costará la mensualidad?<span class="abrir" aria-hidden="true">+</span></summary><p>Inglés cuesta US$4,99 al mes; Gimnasio y Chef cuestan US$9,99 al mes cada uno. Son precios en USD, por asistente. El pago previsto será manual mediante Binance Pay en USDT, después de confirmar la apertura y el importe final.</p></details>
+      <details><summary>¿Cómo se usarán los asistentes?<span class="abrir" aria-hidden="true">+</span></summary><p>El canal previsto es WhatsApp en el +591 62230618, pendiente de activación. Esta web no incluye una conversación con IA ni ha activado el número.</p></details>
       <details><summary>¿Esta web pide datos sobre mi cuerpo o salud?<span class="abrir" aria-hidden="true">+</span></summary><p>En esta web no pedimos fotos, peso ni datos de salud. El asistente de movimiento se describe sin inferencias sobre capacidad por tu tipo de cuerpo.</p></details>
-      <details><summary>¿Cómo consulto la apertura?<span class="abrir" aria-hidden="true">+</span></summary><p>El botón «Consultar la apertura» abre tu aplicación de correo hacia cagenciauto@gmail.com, contacto provisional de CARVAJAL. Tú decides si envías el mensaje. No compartas información sensible.</p></details>
+      <details><summary>¿Cómo consulto la apertura?<span class="abrir" aria-hidden="true">+</span></summary><p>Puedes consultar la activación en el número previsto +591 62230618 cuando esté activo. Mientras tanto, utiliza cagenciauto@gmail.com, contacto provisional de CARVAJAL. Los enlaces de WhatsApp solo preparan un mensaje; tú decides si enviarlo.</p></details>
     </div>
   </section>
 </main>
@@ -170,7 +175,7 @@
     </div>
     <div class="firma-final">
       <p>El servicio está previsto por WhatsApp cuando la apertura se confirme; hoy no es operativo.</p>
-      <p>La mensualidad no está definida: se publicará antes de contratar y no se aceptará ningún pago mientras falte.</p>
+      <p>Inglés US$4,99/mes · Gimnasio US$9,99/mes · Chef US$9,99/mes. Binance Pay previsto; apertura y número pendientes de activación.</p>
       <p>Los derechos del consumidor se respetarán conforme a los mercados atendidos. <a class="enlace-claro" href="legal/uso-responsable.html">Conoce los límites de la IA y del acompañamiento de bienestar</a>.</p>
     </div>
   </div>

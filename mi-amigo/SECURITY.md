@@ -42,3 +42,18 @@ Estas referencias orientan el análisis; no certifican cumplimiento ni sustituye
 - Se corrigieron tokens de color: coral sobre blanco y texto secundario sobre crema superan 4.5:1; esto no equivale a certificar accesibilidad WCAG completa.
 - Sin credenciales detectadas por el escaneo heurístico ni recursos externos en el contenido publicado. Sin fuentes descargadas ni fotos, vídeos o conversaciones.
 - La revisión en navegador, el comportamiento visual real en dispositivos y los encabezados efectivos de la plataforma no han sido verificados mediante navegador. No se ha realizado pentest.
+
+## Revisión requerida para actualización de precios, QR y animación
+- Precios en USD autorizados: Inglés 4,99; Gimnasio 9,99; Chef 9,99 por asistente/mes. No asumir paridad fija USD/USDT ni comisiones cero.
+- QR binario idéntico al suministrado, central decodificado frente a QR de descarga separado; no crear un nuevo destinatario ni transferir fondos. Datos de destino deben contrastarse en Binance al efectuar el pago.
+- Nuevo número explícito del usuario: +591 62230618, pendiente de activación. Los enlaces abren WhatsApp solo por acción del visitante; no envían mensajes automáticamente.
+- Confirmación manual prevista; no registrar pagos exitosos en JavaScript ni confiar en una captura para autorizar el servicio.
+- Escena WebGL local sin dependencias, solicitudes de red, lectura de píxeles, exportación de huellas, cámara o micrófono. Limitar resolución y fotogramas; pausar por visibilidad, preferencia de movimiento reducido y control del usuario.
+- Políticas y textos de propiedad intelectual deben distinguir el gráfico promocional original del QR de Binance proporcionado expresamente por el usuario.
+
+## Validación de la actualización publicada
+- 8 HTML y 141 enlaces/recursos: 0 fallos; importes y teléfono comprobados, QR original idéntico por SHA-256.
+- JavaScript válido. Pruebas de selector y controles de escena: límite 24fps y 600px, pausa manual, pestaña oculta, fuera de viewport, preferencia de movimiento reducido, fallo de shader/WebGL y pérdida de contexto.
+- Shaders originales compilados y enlazados en Mesa EGL; renderizados e inspeccionados dos fotogramas distintos. Esta validación del render no es una prueba del sitio en navegador, de accesibilidad completa ni de rendimiento en todos los dispositivos.
+- La actualización se intentó con el mismo agente GLM-5.3-Flash Free. Las llamadas permanecieron sin devolver archivos y fueron interrumpidas; el supervisor implementó y verificó los cambios finales. No se atribuye al agente la autoría de esta actualización.
+- No se activó WhatsApp, no se procesó ningún pago ni se implementó verificación de pagos, suscripciones o recordatorios en un backend.

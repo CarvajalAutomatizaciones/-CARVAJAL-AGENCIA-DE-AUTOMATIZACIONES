@@ -9,7 +9,7 @@ Navegación asistentes/cómo funciona/suscripción/preguntas.
 3 asistentes: Chef recetas e instrucciones; Inglés práctica escrita adaptada al nivel sin prometer audio; Movimiento gimnasio progresivo adaptado a experiencia, equipamiento, objetivos y límites.
 No inferir capacidad o salud de tipo de cuerpo, no pedir fotos, peso ni salud en esta web.
 Propuesta adicional Organizador solo como idea futura.
-Página publicitaria en PRELANZAMIENTO; precios, número y entidad legal no confirmados: no inventar, no cobrar, no formulario, no registro, CTA explora asistentes o condiciones; botón consultar apertura mailto cagenciauto@gmail.com claramente contacto provisional CARVAJAL y confirmar en sitio externo.
+Página publicitaria en PRELANZAMIENTO; precios y número definidos por UPDATE-BRIEF.md; entidad legal pendiente: no inventar, no cobrar aún, no formulario, no registro; botón consultar apertura mailto cagenciauto@gmail.com claramente contacto provisional CARVAJAL y confirmar en sitio externo.
 Servicio futuro por WhatsApp, no afirmar operativo.
 No números, testimonials, falsas conversaciones, resultados garantizados ni falsa aprobación Meta.
 Diseña selector interactivo que recomienda solo de 3 intereses no sensibles, sin red.

@@ -632,3 +632,37 @@ button[data-interest][aria-pressed="true"] { background: var(--tinta); color: va
 figure[id] { scroll-margin-top: 7rem; }
 @media (min-width: 62rem) { .hero .hero-grid { grid-template-columns: 1.2fr 1fr; } .hero h1 { font-size: clamp(3rem, 5.2vw, 4.8rem); } .nav-desktop { display: flex; gap: 1.5rem; } }
 @media (max-width: 47.9rem) { .hero-art { max-width: 23rem; } .banda li { font-size: .72rem; } .hero h1 { font-size: clamp(2.4rem, 8vw, 4rem); } }
+
+/* Actualización de planes y escena 3D: recursos propios y controles accesibles. */
+.plan-price { margin: .7rem 0 !important; color: var(--tinta) !important; }
+.plan-price strong { font-size: 1.8rem; letter-spacing: -.05em; }
+.plan-price span { font-size: .85rem; }
+.price-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.price-card { display: flex; flex-direction: column; border: 2px solid var(--tinta); border-radius: 1.4rem; padding: 1.6rem; background: var(--crema-alta); }
+.price-card:nth-child(2) { background: #e6edcf; }
+.price-card h3 { font-size: 1.7rem; margin: 1rem 0 .4rem; }
+.price-card .btn { margin-top: auto; text-align: center; font-size: .9rem; }
+.price-kicker { color: var(--tinta-suave); font-size: .68rem; letter-spacing: .12em; font-weight: 750; }
+.price-amount { font-size: clamp(2rem,3.8vw,2.8rem); font-weight: 800; letter-spacing: -.06em; margin: .4rem 0; }
+.price-amount span { font-size: 1rem; font-weight: 500; letter-spacing: 0; }
+.pricing-note { font-size: .9rem; color: var(--tinta-suave); max-width: 64rem; }
+.pricing-note a, .payment-layout a:not(.btn), .payment-small a { color: var(--coral-oscuro); text-underline-offset: .2em; }
+.payment-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; margin-top: 4rem; scroll-margin-top: 7rem; }
+.payment-copy h3 { font-size: clamp(1.7rem,3.4vw,2.4rem); line-height: 1.15; letter-spacing: -.04em; margin: 0 0 1rem; }
+.payment-status { border-left: 4px solid var(--coral); padding: .5rem 0 .5rem 1rem; font-size: .95rem; }
+.payment-steps { padding-left: 1.3rem; color: var(--tinta-suave); }
+.payment-steps li { padding-left: .3rem; margin-bottom: .85rem; }
+.payment-small { font-size: .83rem; color: var(--tinta-suave); }
+.payment-qr { border: 2px solid var(--borde-fuerte); border-radius: 1.5rem; background: var(--crema-alta); padding: 1.4rem; align-self: start; min-width: 0; }
+.payment-qr h4 { font-size: 1.7rem; margin: .8rem 0 .2rem; }
+.payment-qr p { font-size: .9rem; }
+.payment-qr img { display: block; width: 100%; height: auto; margin: 1rem 0; border-radius: .8rem; }
+.payment-qr summary { cursor: pointer; font-weight: 700; padding: .9rem 0; border-block: 1px solid var(--borde); }
+.confirmation-note { padding: 1.5rem; border: 2px dashed var(--borde-fuerte); border-radius: 1.25rem; margin-top: 2rem; font-size: .92rem; }
+.confirmation-note h3 { margin-top: 0; }
+.hero-scene { aspect-ratio: 1; }
+.hero-scene canvas { display: block; width: 100%; height: 100%; border-radius: 2.5rem; }
+.hero-scene > img { width: 100%; height: auto; }
+.motion-toggle { position: absolute; left: .7rem; bottom: .5rem; max-width: 54%; background: var(--crema-alta); color: var(--tinta); border: 1.5px solid var(--tinta); border-radius: 999px; padding: .65rem .9rem; font: inherit; font-size: .75rem; font-weight: 700; cursor: pointer; z-index: 2; }
+.hero-scene .art-note { bottom: 3.3rem; right: -.1rem; }
+@media (max-width: 55rem) { .price-grid, .payment-layout { grid-template-columns: 1fr; } .price-card { padding: 1.4rem; } .payment-layout { gap: 1.5rem; } .payment-qr { width: 100%; max-width: 30rem; justify-self: center; } .price-amount { font-size: 2.5rem; } }
