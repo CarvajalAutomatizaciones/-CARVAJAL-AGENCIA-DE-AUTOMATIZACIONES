@@ -224,12 +224,23 @@ header.fijo .wrap {
 }
 .boton-menu:hover { background: var(--lima-suave); }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (banner estático) ---------- */
 
 .hero {
-  padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem);
+  width: 100%;
+  color: var(--crema-alta);
+  background-color: var(--tinta);
+  background-image:
+    linear-gradient(90deg, rgba(10,28,22,.88) 0%, rgba(10,28,22,.78) 34%, rgba(10,28,22,.48) 55%, rgba(10,28,22,.08) 82%),
+    url("assets/hero-banner.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid var(--tinta);
 }
-.hero .wrap { display: grid; }
+
+.hero .wrap { padding-block: clamp(3.5rem, 8vw, 7rem); }
+
 .eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.22em;
@@ -238,6 +249,7 @@ header.fijo .wrap {
   margin: 0 0 1rem 0;
   text-transform: uppercase;
 }
+.hero .eyebrow { color: var(--lima); }
 .hero h1 {
   font-size: clamp(2.6rem, 8vw, 5.2rem);
   line-height: 1.04;
@@ -246,13 +258,15 @@ header.fijo .wrap {
   font-weight: 800;
 }
 .hero h1 span { display: block; }
-.hero h1 .verso { color: var(--tinta-muda); font-size: 0.72em; }
 .hero .promo {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   max-width: 34rem;
   margin: 0 0 1.6rem 0;
-  color: var(--tinta-suave);
+  color: var(--crema-alta);
 }
+.hero .btn-linea { color: var(--crema-alta); border-color: var(--crema-alta); }
+.hero .btn-linea:hover { background: rgba(158, 207, 74, 0.25); color: var(--crema-alta); }
+
 .guia-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.45rem; color: var(--tinta-muda); font-size: .95rem; }
 .guia-lista li { display: flex; gap: .5rem; align-items: flex-start; }
 .guia-lista li::before { content: "→"; color: var(--coral); font-weight: 800; }
@@ -615,11 +629,7 @@ button[data-interest][aria-pressed="true"] { background: var(--tinta); color: va
 .doc table { border-collapse: collapse; width: 100%; font-size: .95rem; }
 .doc th, .doc td { text-align: left; vertical-align: top; padding: .8rem; border-bottom: 1px solid var(--borde); }
 
-.hero-grid { align-items: center; gap: 2rem; }
-.hero-art { position: relative; width: 100%; max-width: 31rem; justify-self: center; }
-.hero-art img { display: block; width: 100%; height: auto; }
-.art-note { display: block; position: absolute; right: 0; bottom: 0; background: var(--crema-alta); border: 2px solid var(--tinta); border-radius: 1rem; padding: .8rem 1.1rem; font-size: .9rem; font-weight: 700; transform: rotate(-4deg); }
-.hero-status { margin-top: 1.5rem; font-size: .85rem; color: var(--tinta-muda); }
+.hero-status { margin-top: 1.5rem; font-size: .85rem; color: rgba(250, 243, 230, 0.8); }
 .nav-desktop { display: none; }
 .nav-desktop a { color: var(--tinta); font-size: .9rem; font-weight: 650; text-decoration: none; }
 .navegacion details > ul { list-style: none; margin: .5rem 0 0; }
@@ -630,10 +640,18 @@ button[data-interest][aria-pressed="true"] { background: var(--tinta); color: va
 .carta { border-width: 2px; }
 .carta:target { outline: 3px solid var(--coral); outline-offset: 5px; }
 figure[id] { scroll-margin-top: 7rem; }
-@media (min-width: 62rem) { .hero .hero-grid { grid-template-columns: 1.2fr 1fr; } .hero h1 { font-size: clamp(3rem, 5.2vw, 4.8rem); } .nav-desktop { display: flex; gap: 1.5rem; } }
-@media (max-width: 47.9rem) { .hero-art { max-width: 23rem; } .banda li { font-size: .72rem; } .hero h1 { font-size: clamp(2.4rem, 8vw, 4rem); } }
+@media (min-width: 62rem) { .hero h1 { font-size: clamp(3rem, 5.2vw, 4.8rem); } .nav-desktop { display: flex; gap: 1.5rem; } }
+@media (max-width: 47.9rem) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(10,28,22,.74), rgba(10,28,22,.74)),
+      url("assets/hero-banner-mobile.webp");
+  }
+  .banda li { font-size: .72rem; }
+  .hero h1 { font-size: clamp(2.4rem, 8vw, 4rem); }
+}
 
-/* Actualización de planes y escena 3D: recursos propios y controles accesibles. */
+/* Actualización de planes: recursos propios y controles accesibles. */
 .plan-price { margin: .7rem 0 !important; color: var(--tinta) !important; }
 .plan-price strong { font-size: 1.8rem; letter-spacing: -.05em; }
 .plan-price span { font-size: .85rem; }
@@ -660,9 +678,4 @@ figure[id] { scroll-margin-top: 7rem; }
 .payment-qr summary { cursor: pointer; font-weight: 700; padding: .9rem 0; border-block: 1px solid var(--borde); }
 .confirmation-note { padding: 1.5rem; border: 2px dashed var(--borde-fuerte); border-radius: 1.25rem; margin-top: 2rem; font-size: .92rem; }
 .confirmation-note h3 { margin-top: 0; }
-.hero-scene { aspect-ratio: 1; }
-.hero-scene canvas { display: block; width: 100%; height: 100%; border-radius: 2.5rem; }
-.hero-scene > img { width: 100%; height: auto; }
-.motion-toggle { position: absolute; left: .7rem; bottom: .5rem; max-width: 54%; background: var(--crema-alta); color: var(--tinta); border: 1.5px solid var(--tinta); border-radius: 999px; padding: .65rem .9rem; font: inherit; font-size: .75rem; font-weight: 700; cursor: pointer; z-index: 2; }
-.hero-scene .art-note { bottom: 3.3rem; right: -.1rem; }
 @media (max-width: 55rem) { .price-grid, .payment-layout { grid-template-columns: 1fr; } .price-card { padding: 1.4rem; } .payment-layout { gap: 1.5rem; } .payment-qr { width: 100%; max-width: 30rem; justify-self: center; } .price-amount { font-size: 2.5rem; } }

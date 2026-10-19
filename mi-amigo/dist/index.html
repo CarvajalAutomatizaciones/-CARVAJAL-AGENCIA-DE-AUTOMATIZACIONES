@@ -11,7 +11,6 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
-<script src="hero-3d.js" defer></script>
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -33,14 +32,15 @@
 </header>
 <main id="contenido">
   <section class="hero" aria-labelledby="titulo-hero">
-    <div class="wrap hero-grid"><div class="hero-copy">
+    <div class="wrap">
       <p class="eyebrow">TU DÍA A DÍA, CON UN POCO DE IA</p>
       <h1 id="titulo-hero"><span>Un pequeño paso.</span> <span>Un gran compañero.</span></h1>
       <p class="promo">Una receta que te anima a cocinar. Una frase que ya sabes decir. Una rutina que se adapta a tu día. Estamos preparando tus compañeros de IA por suscripción mensual.</p>
       <div class="sin-enlaces">
         <a class="btn btn-claro" href="#asistentes">Explorar asistentes</a>
         <a class="btn btn-linea" href="#suscripcion">Conocer la propuesta</a>
-      </div><p class="hero-status">En preparación · Conoce hoy lo que estamos construyendo.</p></div><div class="hero-art hero-scene"><canvas id="hero-canvas" width="500" height="500" role="img" aria-label="Compañero de IA tridimensional original con satélites de cocina, inglés y movimiento" hidden></canvas><img id="hero-fallback" src="companion.svg" width="500" height="500" alt="Ilustración original de un compañero sonriente rodeado de símbolos de cocina, inglés y movimiento"><span class="art-note">Un poco de ayuda.<br>Muchas posibilidades.</span><button id="hero-motion" type="button" class="motion-toggle" aria-pressed="false" hidden>Pausar animación</button></div>
+      </div>
+      <p class="hero-status">En preparación · Conoce hoy lo que estamos construyendo.</p>
     </div>
   </section>
   <section class="banda" aria-label="Estado del proyecto">

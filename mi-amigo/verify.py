@@ -25,7 +25,7 @@ class Page(HTMLParser):
         if tag == 'script':
             if not a.get('src'): errors.append(f'{self.path.name}: inline script')
             self.scripts.append(a.get('src', ''))
-        if tag in ('form', 'iframe', 'object', 'embed', 'video', 'audio'):
+        if tag in ('form', 'iframe', 'object', 'embed', 'video', 'audio', 'canvas'):
             errors.append(f'{self.path.name}: unexpected active surface {tag}')
         for k, v in attrs:
             if k.lower().startswith('on') or k == 'style': errors.append(f'{self.path.name}: inline {k}')
@@ -63,7 +63,7 @@ for p in root.rglob('*'):
     if not p.is_file() or p.suffix.lower() not in ('.html', '.js', '.css', '.svg', '.txt'): continue
     txt = p.read_text()
     if p.suffix == '.js':
-        for pattern in (r'\binnerHTML\b', r'\bouterHTML\b', r'\beval\s*\(', r'new\s+Function\b', r'\bfetch\s*\(', r'\bXMLHttpRequest\b', r'\blocalStorage\b', r'\bsessionStorage\b', r'document\.cookie', r'insertAdjacentHTML', r'\bWebSocket\b', r'\bsendBeacon\b', r'navigator\.mediaDevices', r'\breadPixels\s*\(', r'\btoDataURL\s*\('):
+        for pattern in (r'\binnerHTML\b', r'\bouterHTML\b', r'\beval\s*\(', r'new\s+Function\b', r'\bfetch\s*\(', r'\bXMLHttpRequest\b', r'\blocalStorage\b', r'\bsessionStorage\b', r'document\.cookie', r'insertAdjacentHTML', r'\bWebSocket\b', r'\bsendBeacon\b', r'navigator\.mediaDevices', r'\breadPixels\s*\(', r'\btoDataURL\s*\(', r'\brequestAnimationFrame\s*\(', r'\bgetContext\s*\('):
             if re.search(pattern, txt): errors.append(f'{p.name}: prohibited JS capability {pattern}')
     if p.suffix == '.css' and re.search(r'@import|https?://|url\s*\(\s*[\"\']?//', txt): errors.append(f'{p.name}: external stylesheet resource')
     if re.search(r'-----BEGIN .*PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20}|sk-[A-Za-z0-9]{24}', txt): errors.append(f'{p.name}: probable secret')
