@@ -645,7 +645,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 35px}
 "use strict";
 const CAA = {
   appLoginUrl: "https://carvajal-app-production.up.railway.app/login",
-  publicBaseUrl: "https://carvajalautomatizaciones.github.io/-CARVAJAL-AGENCIA-DE-AUTOMATIZACIONES/",
+  publicBaseUrl: new URL(".", window.location.href).href,
   analytics: { gaMeasurementId: "", errorEndpoint: "" }
 };
 document.querySelectorAll("[data-app-login]").forEach(a=>a.href=CAA.appLoginUrl);
