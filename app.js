@@ -21,3 +21,9 @@ function draw(now){requestAnimationFrame(draw);const dt=Math.min((now-last)/1000
  const scan=Math.sin(time*.18)*r;ctx.strokeStyle='#d7ad5520';ctx.beginPath();ctx.ellipse(cx,cy+scan,Math.sqrt(r*r-scan*scan),r*.025,0,0,Math.PI*2);ctx.stroke();
 }
 requestAnimationFrame(draw);
+
+const hero=document.querySelector('.hero'),heroLogo=document.querySelector('.hero-logo');
+function fadeLogo(){const r=hero.getBoundingClientRect();const fade=Math.max(0,Math.min(1,(r.bottom-innerHeight*.12)/(hero.offsetHeight*.65)));heroLogo.style.opacity=String(fade);heroLogo.style.visibility=fade===0?'hidden':'visible';}
+addEventListener('scroll',fadeLogo,{passive:true});addEventListener('resize',fadeLogo,{passive:true});fadeLogo();
+if(!reduced&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.plan-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*9+'deg');card.style.setProperty('--rx',(.5-(e.clientY-r.top)/r.height)*7+'deg');});card.addEventListener('pointerleave',()=>{card.style.setProperty('--ry','0deg');card.style.setProperty('--rx','0deg');});});
+const chat=document.querySelector('.chat-body');document.querySelector('#replay-demo').addEventListener('click',()=>{chat.classList.remove('playing');void chat.offsetWidth;chat.classList.add('playing');});
