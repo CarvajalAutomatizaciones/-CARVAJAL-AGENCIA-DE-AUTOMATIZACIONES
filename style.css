@@ -26,3 +26,21 @@ footer{background:var(--ink);color:var(--ivory);padding:65px 6vw 30px;display:gr
  .offer{padding-top:75px}.offer-top .eyebrow{max-width:270px}.offer h2{font-size:80px}.offer-copy{gap:30px}
  .experience-controls{bottom:10px}.experience-controls button{font-size:9px;background:#f6f0e6f5}
 }
+
+/* The official image stays in the DOM at its native aspect ratio. */
+.hero-logo{position:absolute;right:4vw;top:50%;transform:translateY(-56%);width:min(38vw,540px);pointer-events:none}
+.hero-logo img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.hero-copy{max-width:57%}.intro{max-width:510px}.offer h2{font-size:clamp(65px,8.5vw,145px)}
+.dark-journey{background:#100e0b;isolation:isolate;overflow:hidden}
+#world{position:absolute;inset:0;z-index:-1;background:none!important;overflow:hidden}
+#world canvas{position:sticky;top:0;height:100svh;width:100%;opacity:.32;mask-image:linear-gradient(to right,transparent 35%,#000 78%)}
+.step-copy{background:linear-gradient(90deg,#100e0b 70%,#100e0b00);padding-right:25px}
+.nav{background:#f6f0e6f2}.nav.is-dark{background:#100e0bf2}
+@media(max-width:760px){
+.hero-copy{max-width:100%}.hero-logo{position:relative;inset:auto;transform:none;width:min(100%,420px);margin:32px auto 0}
+.chapter.hero{padding-bottom:65px}.hero-bottom{margin-top:12px}.hero-type{font-size:14vw}
+.offer h2{font-size:clamp(60px,16vw,95px)}
+#world canvas{opacity:.14;mask-image:linear-gradient(to right,transparent 10%,#000 100%)}
+.step-copy{padding-right:0;background:#100e0bd9}.chapter.step{padding-top:100px;padding-bottom:100px}
+.scene-label{margin-top:40px}.mobile-visual{display:none}
+}
