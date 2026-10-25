@@ -1,7 +1,19 @@
-# Preparación Cloudflare
+# CARVAJAL — Cloudflare production
 
-Rama preparada para revisión, no publicada. Sitio estático; sin build; directorio de salida raíz. Conservar index.html y todas las páginas legales del repositorio. publicBaseUrl adopta el host efectivo y mantiene compatibilidad con la ruta antigua de Pages.
+Published 2026-10-25 to https://carvajal-agencia.pages.dev via Wrangler Direct Upload.
+Project: carvajal-agencia. Production branch: main (Cloudflare deployment label).
+First deployment: a0829a69.carvajal-agencia.pages.dev. Source commit: d225dc7.
 
-Conectar este repositorio específico a la cuenta autorizada de Cloudflare y seleccionar esta rama para una primera publicación. No cambiar DNS, Meta, Auth ni desactivar GitHub Pages antes de verificar el nuevo HTTPS, privacidad, eliminación y botón Ingresar. El acceso a la App conserva el destino productivo actual; migrar hosting de la web no promueve la App de staging.
+The full storefront source remains on Git branch `codex/cloudflare-preparation-20261020`. GitHub branch `main` now contains legacy URL redirects; do NOT deploy its redirect HTML to Cloudflare.
 
-Después de verificar el destino, fijar las URLs oficiales y actualizar los registros de Meta y enlaces pertinentes con control de cambio. No alojar ni publicar documentos privados de clientes. Esta preparación no certifica cumplimiento legal de todo el contenido ni aceptación de Cloudflare.
+Deploy only index.html, privacy.html, data-deletion.html, cookies.html, subprocessors.html and _headers from this source branch. Do not upload .git or private documents. No build step is required.
+
+Deployment command: `npx wrangler pages deploy <asset-directory> --project-name carvajal-agencia --branch main`.
+
+Verified HTTPS and HTTP 200: /, /privacy, /data-deletion, /cookies, /subprocessors, and the linked production App login https://carvajal-app-production.up.railway.app/login.
+
+Cloudflare normalizes .html URLs to extensionless routes using 308 redirects. publicBaseUrl adopts the current host. Logo is embedded in index.html.
+
+GitHub Pages old URLs redirect to Cloudflare to preserve existing App return links and legal URLs. App remains on Railway. No DNS, Meta or Auth settings were changed in this hosting migration.
+
+Local prepared copy: C:\Users\Hp\CARVAJAL\carvajal-web-cloudflare-20261025\deploy
