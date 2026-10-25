@@ -10,3 +10,19 @@ footer{background:var(--ink);color:var(--ivory);padding:65px 6vw 30px;display:gr
 @media(min-width:1600px){.chapter{padding-left:8vw}.hero-bottom{left:8vw;right:8vw}.step-copy>p:not(.eyebrow){font-size:18px;max-width:460px}.detail-line{max-width:460px}}
 @media(max-width:760px){html{scroll-padding-top:100px}.nav{padding:23px 6vw}.wordmark{font-size:21px}.wordmark span{font-size:6px;margin-top:7px}.nav nav{gap:0}.nav nav>a:not(.app-link){display:none}.app-link{font-size:10px;padding:11px 13px}.app-link span{margin-left:10px}.chapter{padding-left:7vw;padding-right:7vw}.hero{min-height:110svh;align-items:flex-start;padding-top:145px;padding-bottom:0}.hero-copy{max-width:100%;width:100%}.eyebrow{font-size:8px;letter-spacing:.14em;margin-bottom:20px}h1{font-size:clamp(53px,11vw,82px);max-width:100%;line-height:1.02}.intro{font-size:13px;line-height:1.6;margin:22px 0}.actions{gap:18px}.button{padding:15px 18px;font-size:10px;gap:20px}.text-link{font-size:10px}.hero-bottom{bottom:8vh;left:7vw;right:7vw;flex-wrap:wrap;justify-content:space-between;font-size:6px}.hero-bottom>span{display:none}.hero-bottom .interact{font-size:8px;padding-left:0}.hero-type{bottom:1vh;font-size:14.5vw}.step{min-height:115svh;align-items:flex-start;padding-top:125px}.step-copy{width:100%;max-width:none;padding-bottom:0}.step h2{font-size:clamp(48px,10.8vw,78px);max-width:100%}.step-copy>p:not(.eyebrow){font-size:13px;line-height:1.75;max-width:310px;margin:25px 0}.detail-line{max-width:330px}.scene-label{bottom:9vh;font-size:6px;right:7vw;left:7vw;justify-content:flex-end}.scene-label span{font-size:38px}.journey-footer{padding:10px 7vw 50px;justify-content:center}.journey-footer>span{display:none}.offer{padding-top:80px;padding-bottom:60px}.offer-number{display:none}.offer-copy{grid-template-columns:1fr;margin-top:30px;gap:25px}.offer h2{font-size:85px}.offer-right{max-width:none;padding-top:0}.trial{font-size:37px;margin-bottom:23px}.offer-features{margin-top:45px;display:grid;grid-template-columns:1fr 1fr;font-size:7px;gap:20px}footer{padding:45px 7vw;grid-template-columns:1fr;gap:25px}.footer-links{gap:18px;line-height:1.6}.experience-controls{left:12px;bottom:10px}.experience-controls>span{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.mobile-visual{display:none}
+@media(max-width:760px){
+ .chapter.hero,.chapter.step{display:block;min-height:0;height:auto;padding:130px 7vw 55px}
+ .chapter.step{padding-top:90px;padding-bottom:55px}
+ .hero-copy,.step-copy{width:100%;max-width:none;padding:0}
+ h1{font-size:clamp(48px,11.3vw,75px)}.step h2{font-size:clamp(43px,10.8vw,68px)}
+ .step-copy>p:not(.eyebrow){max-width:100%;font-size:14px;line-height:1.85}
+ .mobile-visual{display:block;width:100%;height:clamp(265px,82vw,370px);margin-top:35px;pointer-events:none}
+ .hero-bottom{position:relative;inset:auto;margin-top:25px;gap:18px;font-size:7px}
+ .hero-type{bottom:10px}.scene-label{position:relative;inset:auto;justify-content:flex-start;margin-top:22px;font-size:7px}
+ .scene-label span{font-size:32px}.journey-footer{padding-top:30px}
+ .actions{gap:20px;align-items:flex-start}.actions .button{padding:17px 20px}.intro{margin:24px 0;font-size:14px}
+ .offer{padding-top:75px}.offer-top .eyebrow{max-width:270px}.offer h2{font-size:80px}.offer-copy{gap:30px}
+ .experience-controls{bottom:10px}.experience-controls button{font-size:9px;background:#f6f0e6f5}
+}
