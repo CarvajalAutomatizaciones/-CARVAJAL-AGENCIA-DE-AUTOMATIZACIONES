@@ -13,8 +13,7 @@ Production: https://carvajal-agencia.pages.dev/ remains previous design until fi
 
 ## Pending before final production publication
 - User chooses final website design.
-- Cloudflare Web Analytics activation: deployment OAuth lacks RUM permission (403); dashboard requires sign-in. No statistics beacon installed, no analytics collected. Preference page honestly states inactive.
-- Once analytics is configured, integrate consent-gated beacon and update notices to the actual behavior. Avoid automatic Pages injection if it bypasses preference controls.
+- Cloudflare Web Analytics activated by the user on 26 October 2026. Public beacon identifier recovered through Pages API. Automatic Pages insertion replaced with explicit consent-gated script; no measurement before choice, reload on withdrawal. Browser verification and deployment recorded in final work report.
 - Review legal notices against the final commercial contract and actual provider configuration before adopting them as final production policy.
 
 ## Meta follow-through requested by user
